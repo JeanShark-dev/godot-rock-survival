@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://PlayerMovementBase.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="PlayerContainer" type="Node2D"]
+
+[node name="PlayerKBody" type="KinematicBody2D" parent="."]
+script = ExtResource( 1 )
+baseMoveSpeed = 100.0
+
+[node name="PlayerHitboundary" type="CollisionShape2D" parent="PlayerKBody"]
+shape = SubResource( 1 )
+
+[node name="PlayerSpriteTemp" type="Polygon2D" parent="PlayerKBody"]
+color = Color( 0.870588, 0.870588, 0.870588, 1 )
+polygon = PoolVector2Array( 0.0741024, 9.94511, 2.46203, 9.57053, 4.84996, 8.49362, 6.91013, 7.04214, 8.5489, 5.16926, 9.53217, 2.68768, 10.0472, 0.0656471, 9.62581, -2.50957, 8.64255, -5.03796, 7.14424, -7.05131, 5.08407, -8.69009, 2.50885, -9.57971, 0.0741024, -9.95428, -2.267, -9.72017, -4.84222, -8.54962, -7.04286, -6.86402, -8.54116, -5.08478, -9.47761, -2.65003, -9.99265, 0.0188246, -9.57125, 2.54722, -8.63481, 4.88832, -6.90239, 7.04214, -5.21679, 8.49362, -2.96933, 9.61736 )
+
+[node name="PlayerView" type="Camera2D" parent="PlayerKBody"]
+current = true

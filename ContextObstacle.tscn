@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 45.0111
+
+[node name="ContextObstacle" type="KinematicBody2D"]
+
+[node name="ObstacleHitbox" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="ObstacleSpriteTemp" type="Polygon2D" parent="."]
+color = Color( 0.552941, 0.568627, 0.658824, 1 )
+polygon = PoolVector2Array( -2.16062, 44.7535, 22.4441, 31.2606, 35.1433, 24.911, 39.5086, 11.815, 40.3023, -6.83699, 31.5716, -29.8543, 12.9197, -39.7756, -0.970078, -38.585, -22.0031, -35.0134, -31.9244, -12.7897, -43.433, -1.67794, -39.8614, 14.9898, -25.1779, 30.0701, -16.8441, 39.1976 )
