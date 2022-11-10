@@ -1,12 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://PlayerMovementBase.gd" type="Script" id=1]
+[ext_resource path="res://Gun9mm.gd" type="Script" id=2]
+[ext_resource path="res://9mm.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PlayerContainer.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="PlayerContainer" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="ProjectileContainer" type="Node2D" parent="."]
+
+[node name="Gun9mm" type="Node2D" parent="ProjectileContainer"]
+script = ExtResource( 2 )
+Bullet = ExtResource( 3 )
 
 [node name="PlayerKBody" type="KinematicBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 1 )
 baseMoveSpeed = 100.0
 
