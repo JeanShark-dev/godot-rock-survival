@@ -27,8 +27,9 @@ anim_speed_random = 0.63
 radius = 2.40952
 height = 4.39354
 
-[node name="9mm" type="Area2D"]
-gravity_vec = Vector2( 0, 0 )
+[node name="9mm" type="RigidBody2D"]
+contacts_reported = 5
+contact_monitor = true
 script = ExtResource( 1 )
 
 [node name="9mmTrail" type="Particles2D" parent="."]
@@ -47,4 +48,8 @@ polygon = PoolVector2Array( -2.50125, 3.81217, 2.40952, 3.81217, 2.47968, -2.291
 
 [node name="9mmHitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 4 )
+
+[node name="Deaþtimer" type="Timer" parent="."]
+one_shot = true
 [connection signal="body_entered" from="." to="." method="_on_9mm_body_entered"]
+[connection signal="timeout" from="Deaþtimer" to="." method="_on_Deatimer_timeout"]
