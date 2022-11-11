@@ -9,13 +9,13 @@ func shoot(aim_position, gun_position):
 	rotation = direction.angle() + 0.5 * PI
 	apply_impulse(position*speed, direction*speed)
 
-func _on_9mm_body_entered(body):
-	get_node("Deaþtimer").start()
-	get_node("9mmTrail").emitting = false
-
 func _on_Deatimer_timeout():
 	queue_free()
 
 
 func _on_BarrelTimer_timeout():
 	get_node("9mmHitbox").disabled = false
+
+func _on_9mm_body_shape_entered(body_id, body, body_shape, local_shape):
+	get_node("Deaþtimer").start()
+	get_node("9mmTrail").emitting = false

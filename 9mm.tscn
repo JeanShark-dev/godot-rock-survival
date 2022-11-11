@@ -32,8 +32,8 @@ radius = 2.40952
 height = 4.39354
 
 [node name="9mm" type="RigidBody2D"]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 5
+collision_mask = 2147483649
 contacts_reported = 5
 contact_monitor = true
 angular_damp = 0.1
@@ -67,5 +67,6 @@ wait_time = 0.01
 one_shot = true
 autostart = true
 [connection signal="body_entered" from="." to="." method="_on_9mm_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_9mm_body_shape_entered"]
 [connection signal="timeout" from="Deaþtimer" to="." method="_on_Deatimer_timeout"]
 [connection signal="timeout" from="BarrelTimer" to="." method="_on_BarrelTimer_timeout"]
