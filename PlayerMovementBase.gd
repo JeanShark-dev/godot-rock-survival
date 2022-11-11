@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends RigidBody2D
 
 export (float) var baseMoveSpeed
 var moveVelocity = Vector2()
@@ -19,4 +19,5 @@ func _process(delta):
 	GetMoveInput()
 
 func _physics_process(delta):
-	move_and_slide(moveVelocity)
+	apply_central_impulse(moveVelocity*delta*mass*2)
+	

@@ -11,6 +11,11 @@ func shoot(aim_position, gun_position):
 
 func _on_9mm_body_entered(body):
 	get_node("Deaþtimer").start()
+	get_node("9mmTrail").emitting = false
 
 func _on_Deatimer_timeout():
 	queue_free()
+
+
+func _on_BarrelTimer_timeout():
+	get_node("9mmHitbox").disabled = false

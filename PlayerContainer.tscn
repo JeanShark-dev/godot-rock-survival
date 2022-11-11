@@ -16,11 +16,15 @@ script = ExtResource( 4 )
 script = ExtResource( 2 )
 Bullet = ExtResource( 3 )
 
-[node name="PlayerKBody" type="KinematicBody2D" parent="."]
+[node name="PlayerKBody" type="RigidBody2D" parent="."]
 collision_layer = 2
 collision_mask = 2
+mass = 500.0
+contacts_reported = 10
+contact_monitor = true
+linear_damp = 2.0
 script = ExtResource( 1 )
-baseMoveSpeed = 100.0
+baseMoveSpeed = 200.0
 
 [node name="PlayerHitboundary" type="CollisionShape2D" parent="PlayerKBody"]
 shape = SubResource( 1 )

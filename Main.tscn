@@ -32,3 +32,5 @@ physics_material_override = SubResource( 2 )
 [node name="ContextObstacle3" parent="WorldContainer" instance=ExtResource( 2 )]
 position = Vector2( 180, -32 )
 physics_material_override = SubResource( 3 )
+
+[node name="EnemyContainer" type="Node2D" parent="."]

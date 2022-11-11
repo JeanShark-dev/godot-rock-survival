@@ -13,7 +13,6 @@ func _shoot():
 	pew.shoot(get_global_mouse_position(), position)
 
 func _process(delta):
-	print(rechamberTime)
 	if rechamberTime < 0:
 		rechamberTime = 0
 	if rechamberTime > 0:
