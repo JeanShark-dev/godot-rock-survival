@@ -34,3 +34,4 @@ polygon = PoolVector2Array( 0.0741024, 9.94511, 2.46203, 9.57053, 4.84996, 8.493
 
 [node name="PlayerView" type="Camera2D" parent="PlayerRBody"]
 current = true
+zoom = Vector2( 0.75, 0.75 )
