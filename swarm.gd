@@ -1,11 +1,14 @@
 extends RigidBody2D
 
 var speed = 500
-var hp = 10
+export (float) var maxHP
+onready var HP = maxHP
 var incomingDamage = 0
+var canTakeDamage = true
 var target = Vector2()
 var seesPlayer = false
 var targetObject
+signal takingDamage(damageNum, damageSource)
 
 func _physics_process(delta):
 	if position.distance_to(target) > 5:
@@ -15,12 +18,17 @@ func _process(_delta):
 	if !seesPlayer && $GiveUpTimer.wait_time == 20:
 		$GiveUpTimer.wait_time = 19
 		$GiveUpTimer.start()
-		print("a")
 	if seesPlayer:
 		target = targetObject.position
 
-func takeDamage():
-	pass
+func takeDamage(damageNum):
+	incomingDamage = damageNum
+	HP -= incomingDamage
+	incomingDamage -= incomingDamage
+	canTakeDamage = false
+	$IFrameTimer.start()
+	if HP <= 0:
+		die()
 
 func die():
 	$EnemySpriteTemp.hide()
@@ -45,3 +53,11 @@ func _on_GiveUpTimer_timeout():
 
 func _on_DeaTimer_timeout():
 	queue_free()
+
+
+func _on_IFrameTimer_timeout():
+	canTakeDamage = true
+
+
+func _on_EnemyRBody_takingDamage(damageNum, damageSource):
+	takeDamage(damageNum)

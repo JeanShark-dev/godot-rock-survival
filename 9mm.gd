@@ -17,5 +17,6 @@ func _on_BarrelTimer_timeout():
 	get_node("9mmHitbox").disabled = false
 
 func _on_9mm_body_shape_entered(body_id, body, body_shape, local_shape):
+	body.emit_signal("takingDamage", abs(linear_velocity.x+linear_velocity.y)/20, "9mm")
 	get_node("Deaþtimer").start()
 	get_node("9mmTrail").emitting = false

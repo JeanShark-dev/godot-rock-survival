@@ -38,9 +38,12 @@ physics_material_override = SubResource( 3 )
 
 [node name="EnemyRBody" parent="EnemyContainer" instance=ExtResource( 3 )]
 position = Vector2( 147, 42 )
+maxHP = 100.0
 
 [node name="EnemyRBody2" parent="EnemyContainer" instance=ExtResource( 3 )]
 position = Vector2( 91, 146 )
+maxHP = 10.0
 
 [node name="EnemyRBody3" parent="EnemyContainer" instance=ExtResource( 3 )]
 position = Vector2( -101, 100 )
+maxHP = 2000.0
