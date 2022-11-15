@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 185.132
+radius = 290.506
 
 [sub_resource type="Gradient" id=3]
 resource_local_to_scene = true
