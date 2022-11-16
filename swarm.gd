@@ -9,6 +9,7 @@ var target = Vector2()
 var seesPlayer = false
 var targetObject
 signal takingDamage(damageNum, damageSource)
+var dying = false
 
 func _physics_process(delta):
 	if position.distance_to(target) > 5:
@@ -27,7 +28,10 @@ func takeDamage(damageNum):
 	incomingDamage -= incomingDamage
 	canTakeDamage = false
 	$IFrameTimer.start()
+	if !dying:
+		pass
 	if HP <= 0:
+		dying = true
 		die()
 
 func die():
