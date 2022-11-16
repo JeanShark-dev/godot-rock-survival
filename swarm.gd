@@ -28,7 +28,7 @@ func takeDamage(damageNum):
 	incomingDamage -= incomingDamage
 	canTakeDamage = false
 	$IFrameTimer.start()
-	if !dying:
+	if dying:
 		pass
 	if HP <= 0:
 		dying = true
@@ -36,6 +36,7 @@ func takeDamage(damageNum):
 
 func die():
 	$EnemySpriteTemp.hide()
+	$EnemyHitbox.scale = Vector2(0,0)
 	$"DeaþEffect".emitting = true
 	$"DeaþTimer".start()
 
@@ -65,3 +66,4 @@ func _on_IFrameTimer_timeout():
 
 func _on_EnemyRBody_takingDamage(damageNum, damageSource):
 	takeDamage(damageNum)
+	#print("OW! Took ", damageNum,  " damage from ", damageSource, "!")
