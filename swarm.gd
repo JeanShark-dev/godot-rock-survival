@@ -1,7 +1,8 @@
 extends RigidBody2D
 
-var speed = 500
+export (float) var speed
 export (float) var maxHP
+export (float) var attackRange
 onready var HP = maxHP
 var incomingDamage = 0
 var canTakeDamage = true
@@ -12,7 +13,7 @@ signal takingDamage(damageNum, damageSource)
 var dying = false
 
 func _physics_process(delta):
-	if position.distance_to(target) > 5:
+	if position.distance_to(target) > attackRange+10:
 		apply_central_impulse(position.direction_to(target)*speed)
 
 func _process(_delta):

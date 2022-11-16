@@ -4,10 +4,10 @@ var direction = Vector2()
 export var speed = 1000
 var source
 
-func shoot(aim_position, gun_position, fireSource):
+func shoot(aim_position, gun_position, fireSource, spread):
 	source = fireSource
 	position = gun_position
-	direction = (aim_position - gun_position).normalized()
+	direction = (aim_position - gun_position + Vector2(randi()%spread*2 - spread, randi()%spread*2 - spread)).normalized()
 	rotation = direction.angle() + 0.5 * PI
 	apply_impulse(position*speed, direction*speed)
 
