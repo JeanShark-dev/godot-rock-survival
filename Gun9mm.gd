@@ -10,7 +10,7 @@ onready var BulletContainer = get_node("..")
 func _shoot():
 	var pew = Bullet.instance()
 	BulletContainer.add_child(pew)
-	pew.shoot(get_global_mouse_position(), position)
+	pew.shoot(get_global_mouse_position(), position, "Player")
 
 func _process(delta):
 	if rechamberTime < 0:
