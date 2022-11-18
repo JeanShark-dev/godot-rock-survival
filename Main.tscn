@@ -1,21 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://PlayerContainer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://ContextObstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://swarm.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Main.gd" type="Script" id=4]
-
-[sub_resource type="PhysicsMaterial" id=1]
-resource_local_to_scene = true
-absorbent = true
-
-[sub_resource type="PhysicsMaterial" id=2]
-resource_local_to_scene = true
-absorbent = true
-
-[sub_resource type="PhysicsMaterial" id=3]
-resource_local_to_scene = true
-absorbent = true
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
@@ -24,23 +11,11 @@ script = ExtResource( 4 )
 
 [node name="WorldContainer" type="Node2D" parent="."]
 
-[node name="ContextObstacle" parent="WorldContainer" instance=ExtResource( 2 )]
-position = Vector2( 11, 121 )
-physics_material_override = SubResource( 1 )
-
-[node name="ContextObstacle2" parent="WorldContainer" instance=ExtResource( 2 )]
-position = Vector2( 183, 99 )
-physics_material_override = SubResource( 2 )
-
-[node name="ContextObstacle3" parent="WorldContainer" instance=ExtResource( 2 )]
-position = Vector2( 180, -32 )
-physics_material_override = SubResource( 3 )
-
 [node name="EnemyContainer" type="Node2D" parent="."]
 
 [node name="EnemyRBody" parent="EnemyContainer" instance=ExtResource( 3 )]
 position = Vector2( 147, 42 )
-speed = 50.0
+speed = 250.0
 maxHP = 100.0
 attackRange = 50.0
 
@@ -54,4 +29,4 @@ attackRange = 5.0
 position = Vector2( -101, 100 )
 speed = 20.0
 maxHP = 2000.0
-attackRange = 25.0
+attackRange = 10.0

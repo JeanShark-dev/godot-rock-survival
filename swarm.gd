@@ -13,7 +13,7 @@ signal takingDamage(damageNum, damageSource)
 var dying = false
 
 func _physics_process(delta):
-	if position.distance_to(target) > attackRange+10:
+	if position.distance_to(target) > attackRange+20:
 		apply_central_impulse(position.direction_to(target)*speed)
 
 func _process(_delta):

@@ -38,7 +38,6 @@ contacts_reported = 5
 contact_monitor = true
 angular_damp = 0.1
 script = ExtResource( 1 )
-speed = 1800
 
 [node name="9mmTrail" type="Particles2D" parent="."]
 position = Vector2( -0.0752492, 2.20967 )

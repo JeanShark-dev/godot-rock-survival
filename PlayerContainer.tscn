@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://PlayerMovementBase.gd" type="Script" id=1]
 [ext_resource path="res://Gun9mm.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://PlayerContainer.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
 
 [node name="PlayerContainer" type="Node2D"]
 script = ExtResource( 4 )
@@ -35,3 +37,9 @@ polygon = PoolVector2Array( 0.0741024, 9.94511, 2.46203, 9.57053, 4.84996, 8.493
 [node name="PlayerView" type="Camera2D" parent="PlayerRBody"]
 current = true
 zoom = Vector2( 0.75, 0.75 )
+
+[node name="PlayerHitbox" type="Area2D" parent="PlayerRBody"]
+gravity_vec = Vector2( 0, 0 )
+
+[node name="HitboxBoundary" type="CollisionShape2D" parent="PlayerRBody/PlayerHitbox"]
+shape = SubResource( 2 )

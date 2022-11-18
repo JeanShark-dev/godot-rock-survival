@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var direction = Vector2()
 export var speed = 1000
+
 var source
 
 func shoot(aim_position, gun_position, fireSource, spread):
