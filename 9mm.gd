@@ -24,3 +24,7 @@ func _on_9mm_body_shape_entered(body_id, body, body_shape, local_shape):
 	$"9mmHitbox".disabled = true
 	get_node("Deaþtimer").start()
 	get_node("9mmTrail").emitting = false
+
+
+func _on_Timer_timeout():
+	$"Deaþtimer".start()

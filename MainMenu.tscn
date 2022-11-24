@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://MainMenu.gd" type="Script" id=1]
+
+[sub_resource type="Theme" id=1]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -92.0
+margin_top = -24.0
+margin_bottom = 46.0
+custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameStartButton" type="Button" parent="VBoxContainer"]
+margin_right = 92.0
+margin_bottom = 20.0
+theme = SubResource( 1 )
+text = "START GAME"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+margin_top = 25.0
+margin_right = 92.0
+margin_bottom = 45.0
+theme = SubResource( 1 )
+text = "OPTIONS"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+margin_top = 50.0
+margin_right = 92.0
+margin_bottom = 70.0
+theme = SubResource( 1 )
+text = "QUIT"
+[connection signal="button_down" from="VBoxContainer/GameStartButton" to="." method="_on_GameStartButton_button_down"]
+[connection signal="button_down" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_button_down"]
+[connection signal="button_down" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_button_down"]

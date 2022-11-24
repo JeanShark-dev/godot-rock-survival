@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 
 # Declare member variables here. Examples:
@@ -6,10 +6,14 @@ var num = 10
 var spawnBucket
 var spawnThreshhold = 100
 var spawnBucketMax = 1000
+var missionTime = 0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+
+func _process(delta):
 	pass
 
 func startGame():
@@ -39,6 +43,7 @@ func spawnBoulder(amount):
 		i -= 1
 
 func _on_SpawnTimer_timeout():
+	missionTime += 0.5
 	spawnBucket += 10
 	if spawnBucket >= spawnThreshhold:
 		spawnEnemy(rand_range(1, 10))
@@ -46,7 +51,16 @@ func _on_SpawnTimer_timeout():
 func _on_EnemyRBody_dead(value):
 	spawnBucket += value
 
-
-func _on_Button_pressed():
+func _on_MainMenu_GameStart():
 	startGame()
-	$UIContainer/HSplitContainer/StartGameButton.hide()
+	$UIContainer/MainMenu.hide()
+	$UIContainer/GameUI.show()
+
+
+func _on_MainMenu_QuitGame():
+	get_tree().quit()
+
+
+func _on_MissionTimer_timeout():
+	missionTime += 1
+	print(missionTime)
