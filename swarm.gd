@@ -10,7 +10,9 @@ var target = Vector2()
 var seesPlayer = false
 var targetObject
 signal takingDamage(damageNum, damageSource)
+signal dead(value)
 var dying = false
+var canAttack = true
 
 func _physics_process(delta):
 	if position.distance_to(target) > attackRange+20:
@@ -58,6 +60,7 @@ func _on_GiveUpTimer_timeout():
 
 
 func _on_DeaTimer_timeout():
+	emit_signal("dead", 100)
 	queue_free()
 
 
