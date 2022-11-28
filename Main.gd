@@ -13,15 +13,17 @@ var missionTime = 0
 func _ready():
 	pass
 
-func _process(delta):
-	pass
+func _process(_delta):
+	#$UIContainer/GameUI.set_position()
+	if Input.is_action_just_released("EMERGENCYQUIT"):
+		quitGame()
 
 func startGame():
 	spawnBucket = spawnBucketMax
 	randomize()
 	var player = load("PlayerContainer.tscn").instance()
 	add_child(player)
-	spawnBoulder(rand_range(1,20))
+	spawnBoulder(rand_range(1,40))
 	$SpawnTimer.start()
 
 func spawnEnemy(amount):
@@ -54,13 +56,14 @@ func _on_EnemyRBody_dead(value):
 func _on_MainMenu_GameStart():
 	startGame()
 	$UIContainer/MainMenu.hide()
-	$UIContainer/GameUI.show()
-
 
 func _on_MainMenu_QuitGame():
-	get_tree().quit()
+	quitGame()
 
 
 func _on_MissionTimer_timeout():
 	missionTime += 1
 	print(missionTime)
+
+func quitGame():
+	get_tree().quit()

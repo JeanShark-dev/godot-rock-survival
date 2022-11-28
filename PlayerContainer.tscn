@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://PlayerMovementBase.gd" type="Script" id=1]
 [ext_resource path="res://Gun9mm.gd" type="Script" id=2]
 [ext_resource path="res://9mm.tscn" type="PackedScene" id=3]
 [ext_resource path="res://PlayerContainer.gd" type="Script" id=4]
+[ext_resource path="res://GameUI.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -27,6 +28,11 @@ linear_damp = 2.0
 script = ExtResource( 1 )
 baseMoveSpeed = 200.0
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerRBody"]
+remote_path = NodePath("../../Node2D")
+update_rotation = false
+update_scale = false
+
 [node name="PlayerHitboundary" type="CollisionShape2D" parent="PlayerRBody"]
 shape = SubResource( 1 )
 
@@ -36,10 +42,20 @@ polygon = PoolVector2Array( 0.0741024, 9.94511, 2.46203, 9.57053, 4.84996, 8.493
 
 [node name="PlayerView" type="Camera2D" parent="PlayerRBody"]
 current = true
-zoom = Vector2( 0.75, 0.75 )
 
 [node name="PlayerHitbox" type="Area2D" parent="PlayerRBody"]
 gravity_vec = Vector2( 0, 0 )
 
 [node name="HitboxBoundary" type="CollisionShape2D" parent="PlayerRBody/PlayerHitbox"]
 shape = SubResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="GameUI" parent="Node2D" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -360.0
+margin_top = -240.0
+margin_right = 360.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 720, 480 )

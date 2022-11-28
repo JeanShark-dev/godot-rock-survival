@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var direction = Vector2()
 export var speed = 1000
-
+var damage = 20
 var source
 
 func shoot(aim_position, gun_position, fireSource, spread):
@@ -20,8 +20,9 @@ func _on_BarrelTimer_timeout():
 	get_node("9mmHitbox").disabled = false
 
 func _on_9mm_body_shape_entered(body_id, body, body_shape, local_shape):
-	body.emit_signal("takingDamage", abs(linear_velocity.x+linear_velocity.y)/20, source)
-	$"9mmHitbox".disabled = true
+	body.emit_signal("takingDamage", damage, source)
+	#$"9mmHitbox".disabled = true
+	damage -= damage -1 
 	get_node("Deaþtimer").start()
 	get_node("9mmTrail").emitting = false
 
