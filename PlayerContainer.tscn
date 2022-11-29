@@ -59,3 +59,5 @@ margin_top = -240.0
 margin_right = 360.0
 margin_bottom = 240.0
 rect_min_size = Vector2( 720, 480 )
+
+[connection signal="scoreAdd" from="." to="Node2D/GameUI" method="_on_PlayerContainer_scoreAdd"]

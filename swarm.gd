@@ -14,6 +14,7 @@ signal dead(value)
 var dying = false
 var canAttack = true
 
+
 func _physics_process(delta):
 	if position.distance_to(target) > attackRange+20:
 		apply_central_impulse(position.direction_to(target)*speed)
@@ -29,8 +30,8 @@ func takeDamage(damageNum):
 	incomingDamage = damageNum
 	HP -= incomingDamage
 	incomingDamage -= incomingDamage
-	canTakeDamage = false
-	$IFrameTimer.start()
+	#canTakeDamage = false
+	#$IFrameTimer.start()
 	if dying:
 		pass
 	if HP <= 0:
@@ -56,7 +57,7 @@ func _on_EnemyVision_body_shape_exited(body_id, body, body_shape, area_shape):
 
 
 func _on_GiveUpTimer_timeout():
-	die()
+	queue_free()
 
 
 func _on_DeaTimer_timeout():

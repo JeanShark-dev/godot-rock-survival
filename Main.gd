@@ -6,8 +6,7 @@ var num = 10
 var spawnBucket
 var spawnThreshhold = 100
 var spawnBucketMax = 1000
-var missionTime = 0
-
+signal scoreAdd(scorePlus)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +22,8 @@ func startGame():
 	randomize()
 	var player = load("PlayerContainer.tscn").instance()
 	add_child(player)
+	#player = get_node("PlayerContainer")
+	#connect("scoreAdd", player, "on_Main_scoreAdd")
 	spawnBoulder(rand_range(1,40))
 	$SpawnTimer.start()
 
@@ -34,6 +35,7 @@ func spawnEnemy(amount):
 		foe.speed = randi()%200
 		foe.attackRange = randi()%50
 		foe.position = Vector2(randi()%1000 -500, randi()%1000 -500)
+		foe.connect("dead", self, "_on_EnemyRBody_dead")
 		$EnemyContainer.add_child(foe)
 		spawnBucket -= spawnThreshhold
 
@@ -45,13 +47,13 @@ func spawnBoulder(amount):
 		i -= 1
 
 func _on_SpawnTimer_timeout():
-	missionTime += 0.5
 	spawnBucket += 10
 	if spawnBucket >= spawnThreshhold:
 		spawnEnemy(rand_range(1, 10))
 
 func _on_EnemyRBody_dead(value):
 	spawnBucket += value
+	self.emit_signal("scoreAdd", value)
 
 func _on_MainMenu_GameStart():
 	startGame()
@@ -59,11 +61,6 @@ func _on_MainMenu_GameStart():
 
 func _on_MainMenu_QuitGame():
 	quitGame()
-
-
-func _on_MissionTimer_timeout():
-	missionTime += 1
-	print(missionTime)
 
 func quitGame():
 	get_tree().quit()

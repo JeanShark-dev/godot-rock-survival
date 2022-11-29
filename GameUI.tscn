@@ -6,16 +6,23 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Label" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 98.0
 margin_bottom = 14.0
 text = "Mission Time : "
 
-[node name="Timer" type="Timer" parent="Label"]
+[node name="Timer" type="Timer" parent="VBoxContainer/Label"]
 autostart = true
 
-[connection signal="timeout" from="Label/Timer" to="." method="_on_Timer_timeout"]
+[node name="Label2" type="Label" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 98.0
+margin_bottom = 32.0
+text = "Score : "
+
+[connection signal="timeout" from="VBoxContainer/Label/Timer" to="." method="_on_Timer_timeout"]
