@@ -4,7 +4,7 @@ basic functionality:
 	 - main menu + pause screen
 	 - enemy + obstacle spawing over time
 	 - scoring/upgrade system
-	 - survival time timer
+	 - survival time timer		DONE
 
 content:
 	 - new weapons
@@ -19,3 +19,4 @@ bug fixes, QOL upgrades:
 	 - better bullet collision
 	 - enemies wait a bit before moving towards player
 	 - stop annoying debug notes when hitting boulder wiþ bullet
+	 - survival timer displays time in þe standard short time format (23-59-59)
