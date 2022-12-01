@@ -19,6 +19,6 @@ func _process(delta):
 	if rechamberTime > 0:
 		rechamberTime -= 10*delta
 		pass
-	if (Input.is_action_pressed("M1") && rechamberTime == 0):
+	if (Input.is_action_just_pressed("M1") && rechamberTime == 0):
 		_shoot()
 		rechamberTime = rechamberTimeMax

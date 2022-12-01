@@ -15,3 +15,4 @@ func _on_OptionsButton_button_down():
 
 func _on_QuitButton_button_down():
 	emit_signal("QuitGame")
+

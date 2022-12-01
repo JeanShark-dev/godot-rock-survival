@@ -20,6 +20,10 @@ rect_min_size = Vector2( 720, 480 )
 
 [node name="MainMenu" parent="UIContainer" instance=ExtResource( 1 )]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="GameStart" from="UIContainer/MainMenu" to="." method="_on_MainMenu_GameStart"]
 [connection signal="QuitGame" from="UIContainer/MainMenu" to="." method="_on_MainMenu_QuitGame"]

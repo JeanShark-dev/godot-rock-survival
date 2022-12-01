@@ -75,7 +75,7 @@ fit_content_height = true
 margin_top = 38.0
 margin_right = 456.0
 margin_bottom = 53.0
-text = "BACKSPACE to quit"
+text = "ESCAPE to open pause menu"
 fit_content_height = true
 
 [connection signal="button_down" from="VBoxContainer/GameStartButton" to="." method="_on_GameStartButton_button_down"]

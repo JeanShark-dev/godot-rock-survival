@@ -20,6 +20,7 @@ func _process(_delta):
 func startGame():
 	spawnBucket = spawnBucketMax
 	randomize()
+	$Camera2D.current = false
 	var player = load("PlayerContainer.tscn").instance()
 	add_child(player)
 	#player = get_node("PlayerContainer")
@@ -45,6 +46,17 @@ func spawnBoulder(amount):
 		$WorldContainer.add_child(boulder)
 		boulder.position = Vector2(randi()%1000 -500, randi()%1000 -500)
 		i -= 1
+
+func reset():
+	$SpawnTimer.stop()
+	while ($WorldContainer.get_child_count() != 0):
+		$WorldContainer.remove_child($WorldContainer.get_child(0))
+	while ($EnemyContainer.get_child_count() != 0):
+		$EnemyContainer.remove_child($EnemyContainer.get_child(0))
+	var player = get_node("PlayerContainer")
+	player.queue_free()
+	$UIContainer/MainMenu.show()
+	$Camera2D.current = true
 
 func _on_SpawnTimer_timeout():
 	spawnBucket += 10
