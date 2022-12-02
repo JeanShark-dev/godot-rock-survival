@@ -85,12 +85,8 @@ one_shot = true
 [node name="DeaþTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="IFrameTimer" type="Timer" parent="."]
-wait_time = 0.01
-one_shot = true
 [connection signal="takingDamage" from="." to="." method="_on_EnemyRBody_takingDamage"]
 [connection signal="body_shape_entered" from="EnemyVision" to="." method="_on_EnemyVision_body_shape_entered"]
 [connection signal="body_shape_exited" from="EnemyVision" to="." method="_on_EnemyVision_body_shape_exited"]
 [connection signal="timeout" from="GiveUpTimer" to="." method="_on_GiveUpTimer_timeout"]
 [connection signal="timeout" from="DeaþTimer" to="." method="_on_DeaTimer_timeout"]
-[connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]

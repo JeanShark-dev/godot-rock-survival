@@ -14,7 +14,6 @@ signal dead(value)
 var dying = false
 var canAttack = true
 
-
 func _physics_process(delta):
 	if position.distance_to(target) > attackRange+20:
 		apply_central_impulse(position.direction_to(target)*speed)
@@ -25,15 +24,15 @@ func _process(_delta):
 		$GiveUpTimer.start()
 	if seesPlayer:
 		target = targetObject.position
+	if position.distance_to(target) < attackRange:
+		pass #once attack function is done, add here
 
 func takeDamage(damageNum):
+	if dying:
+		pass
 	incomingDamage = damageNum
 	HP -= incomingDamage
 	incomingDamage -= incomingDamage
-	#canTakeDamage = false
-	#$IFrameTimer.start()
-	if dying:
-		pass
 	if HP <= 0:
 		dying = true
 		die()
@@ -63,10 +62,6 @@ func _on_GiveUpTimer_timeout():
 func _on_DeaTimer_timeout():
 	emit_signal("dead", 100)
 	queue_free()
-
-
-func _on_IFrameTimer_timeout():
-	canTakeDamage = true
 
 
 func _on_EnemyRBody_takingDamage(damageNum, damageSource):

@@ -2,6 +2,7 @@ extends RigidBody2D
 
 export (float) var baseMoveSpeed
 var moveVelocity = Vector2()
+signal takingDamage(damageNum, damageSource)
 
 func GetMoveInput():
 	moveVelocity = Vector2()

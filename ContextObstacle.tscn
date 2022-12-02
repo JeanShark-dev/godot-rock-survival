@@ -2,13 +2,13 @@
 
 [sub_resource type="PhysicsMaterial" id=3]
 resource_local_to_scene = true
-absorbent = true
+rough = true
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 45.0111
 
 [node name="ContextObstacle" type="RigidBody2D"]
-mass = 3836.06
+mass = 65535.0
 physics_material_override = SubResource( 3 )
 continuous_cd = 2
 
