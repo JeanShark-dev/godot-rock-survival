@@ -25,7 +25,7 @@ func _process(_delta):
 	if seesPlayer:
 		target = targetObject.position
 	if position.distance_to(target) < attackRange:
-		pass #once attack function is done, add here
+		pass
 
 func takeDamage(damageNum):
 	if dying:
@@ -36,6 +36,9 @@ func takeDamage(damageNum):
 	if HP <= 0:
 		dying = true
 		die()
+
+func attack(damage, source):
+	pass
 
 func die():
 	$EnemySpriteTemp.hide()
