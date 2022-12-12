@@ -24,8 +24,11 @@ func _process(_delta):
 		$GiveUpTimer.start()
 	if seesPlayer:
 		target = targetObject.position
-	if position.distance_to(target) < attackRange:
-		pass
+	if position.distance_to(target) < attackRange and canAttack == true:
+		canAttack = false
+		$AttackingEffect.emitting = true
+		$AttackTimer.wait_time = 1
+		$AttackTimer.start()
 
 func takeDamage(damageNum):
 	if dying:
@@ -38,7 +41,7 @@ func takeDamage(damageNum):
 		die()
 
 func attack(damage, source):
-	pass
+	$AttackingEffect.emitting = false
 
 func die():
 	$EnemySpriteTemp.hide()
@@ -70,3 +73,8 @@ func _on_DeaTimer_timeout():
 func _on_EnemyRBody_takingDamage(damageNum, damageSource):
 	takeDamage(damageNum)
 	#print("OW! Took ", damageNum,  " damage from ", damageSource, "!")
+
+
+func _on_AttackTimer_timeout():
+	attack(10, "bite")
+	canAttack = true

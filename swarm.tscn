@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://swarm.gd" type="Script" id=1]
 
@@ -41,6 +41,32 @@ scale = 10.0
 scale_random = 1.0
 scale_curve = SubResource( 6 )
 color_ramp = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 1
+emission_sphere_radius = 10.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 1.0
+angular_velocity = 1.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.1
+orbit_velocity_random = 1.0
+linear_accel = 1.0
+linear_accel_random = 1.0
+radial_accel = 1.0
+radial_accel_random = 1.0
+tangential_accel = 1.0
+tangential_accel_random = 1.0
+angle = 1.0
+angle_random = 1.0
+scale = 3.0
+scale_random = 1.0
+color = Color( 0.854902, 0.592157, 0.592157, 1 )
+hue_variation = 0.05
+hue_variation_random = 0.5
 
 [node name="EnemyRBody" type="RigidBody2D"]
 collision_mask = 5
@@ -85,8 +111,19 @@ one_shot = true
 [node name="DeaþTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="AttackingEffect" type="Particles2D" parent="."]
+emitting = false
+amount = 20
+explosiveness = 0.1
+randomness = 0.1
+local_coords = false
+process_material = SubResource( 8 )
+
+[node name="AttackTimer" type="Timer" parent="."]
+
 [connection signal="takingDamage" from="." to="." method="_on_EnemyRBody_takingDamage"]
 [connection signal="body_shape_entered" from="EnemyVision" to="." method="_on_EnemyVision_body_shape_entered"]
 [connection signal="body_shape_exited" from="EnemyVision" to="." method="_on_EnemyVision_body_shape_exited"]
 [connection signal="timeout" from="GiveUpTimer" to="." method="_on_GiveUpTimer_timeout"]
 [connection signal="timeout" from="DeaþTimer" to="." method="_on_DeaTimer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
