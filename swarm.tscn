@@ -120,6 +120,9 @@ local_coords = false
 process_material = SubResource( 8 )
 
 [node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AttackDirection" type="RayCast2D" parent="."]
 
 [connection signal="takingDamage" from="." to="." method="_on_EnemyRBody_takingDamage"]
 [connection signal="body_shape_entered" from="EnemyVision" to="." method="_on_EnemyVision_body_shape_entered"]
