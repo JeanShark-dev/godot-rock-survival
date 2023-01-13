@@ -41,6 +41,11 @@ func takeDamage(damageNum):
 		die()
 
 func attack(damage, source):
+	var attack = preload("Attack.tscn").instance()
+	attack.damage = damage
+	attack.source = self.get_rid()
+	attack.rotation_degrees = position.angle_to(target)
+	add_child(attack)
 	$AttackingEffect.emitting = false
 
 func die():
@@ -57,7 +62,7 @@ func _on_EnemyVision_body_shape_entered(body_id, body, body_shape, area_shape):
 	$GiveUpTimer.wait_time = 20
 
 func _on_EnemyVision_body_shape_exited(body_id, body, body_shape, area_shape):
-	target = position
+	#target = position
 	seesPlayer = false
 
 
@@ -71,10 +76,11 @@ func _on_DeaTimer_timeout():
 
 
 func _on_EnemyRBody_takingDamage(damageNum, damageSource):
-	takeDamage(damageNum)
+	if damageSource != self.get_rid():
+		takeDamage(damageNum)
 	#print("OW! Took ", damageNum,  " damage from ", damageSource, "!")
 
 
 func _on_AttackTimer_timeout():
-	attack(10, "bite")
+	attack(10, "enemy")
 	canAttack = true

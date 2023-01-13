@@ -44,5 +44,6 @@ func _on_Main_scoreAdd(scorePlus):
 
 
 func _on_PlayerRBody_takingDamage(damageNum, damageSource):
-	if damageSource != "Player":
+	#print("OW! Took ", damageNum,  " damage from ", damageSource, "!")
+	if damageSource != $PlayerRBody.get_rid():
 		takeDamage(damageNum)

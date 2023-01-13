@@ -34,9 +34,9 @@ func spawnEnemy(amount):
 		foe.maxHP = randi()%250
 		foe.target = $PlayerContainer/PlayerRBody.position
 		foe.speed = rand_range(50,250)
-		foe.attackRange = randi()%50
+		foe.attackRange = rand_range(25,100)
 		foe.position = Vector2(randi()%1000 -500, randi()%1000 -500)
-		var vis = rand_range(0.5,4)
+		var vis = rand_range(0.5,3)
 		foe.get_node("EnemyVision").get_node("EnemyVisionField").scale = Vector2(vis, vis)
 		foe.connect("dead", self, "_on_EnemyRBody_dead")
 		$EnemyContainer.add_child(foe)
