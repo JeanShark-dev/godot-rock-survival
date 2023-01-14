@@ -8,11 +8,12 @@ var missionTimeTextTrue = missionTimeText % str(missionTime)
 var score = 0
 var scoreText = "Score : %s"
 var scoreTextTrue = scoreText % score
+
 var main
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	main = get_parent().get_parent().get_parent()
-	print(main)
+	#print(main)
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -28,6 +29,10 @@ func _on_PlayerContainer_scoreAdd(scorePlus):
 	score += scorePlus
 	scoreTextTrue = scoreText % score
 	$GameplayUI/StatLabels/Score.text = scoreTextTrue
+
+func _on_PlayerContainer_hpUpdate(HPValue, APValue):
+	$"GameplayUI/StatLabels/Healþ".text = HPValue
+	$GameplayUI/StatLabels/Shield.text = APValue
 
 
 func _on_ResumeButton_button_down():

@@ -60,5 +60,6 @@ margin_right = 360.0
 margin_bottom = 240.0
 rect_min_size = Vector2( 720, 480 )
 
+[connection signal="hpUpdate" from="." to="Node2D/GameUI" method="_on_PlayerContainer_hpUpdate"]
 [connection signal="scoreAdd" from="." to="Node2D/GameUI" method="_on_PlayerContainer_scoreAdd"]
 [connection signal="takingDamage" from="PlayerRBody" to="." method="_on_PlayerRBody_takingDamage"]

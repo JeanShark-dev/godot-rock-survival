@@ -6,6 +6,7 @@ var apMax = 25
 var ap
 var hp
 signal scoreAdd(scorePlus)
+signal hpUpdate(HPValue, APValue)
 
 func _ready():
 	$Node2D/GameUI.rect_size = OS.window_size
@@ -13,6 +14,7 @@ func _ready():
 	var parent = get_parent()
 	parent.connect("scoreAdd", self, "_on_Main_scoreAdd")
 	parent.emit_signal("scoreAdd", 0)
+	emit_signal("hpUpdate", str(hpMax), str(apMax))
 	hp = hpMax
 	ap = apMax
 
@@ -31,7 +33,8 @@ func takeDamage(damageNum):
 			ap -= damageNum
 			damageNum -= damageNum
 	hp -= damageNum
-	print (ap, ", ", hp)
+	emit_signal("hpUpdate", str(hp), str(ap))
+	#print (ap, ", ", hp)
 	if hp <= 0:
 		die()
 

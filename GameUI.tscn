@@ -29,6 +29,16 @@ margin_right = 98.0
 margin_bottom = 32.0
 text = "Score : "
 
+[node name="Shield" type="Label" parent="GameplayUI/StatLabels"]
+margin_top = 36.0
+margin_right = 98.0
+margin_bottom = 50.0
+
+[node name="Healþ" type="Label" parent="GameplayUI/StatLabels"]
+margin_top = 54.0
+margin_right = 98.0
+margin_bottom = 68.0
+
 [node name="PauseMenu" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
