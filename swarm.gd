@@ -84,3 +84,4 @@ func _on_EnemyRBody_takingDamage(damageNum, damageSource):
 func _on_AttackTimer_timeout():
 	attack(10, "enemy")
 	canAttack = true
+	look_at(target)
