@@ -1,9 +1,9 @@
 basic functionality:
 	 - player hp and deaþ				DONE
 	 - enemy attack ability				DONE	
-	 - main menu + pause screen + game over screen	DONE	2/3
-	 - enemy + obstacle spawing over time		DONE	1/2
-	 - scoring/upgrade system			DONE	1/2
+	 - main menu + pause screen + game over screen		2/3
+	 - enemy + obstacle spawing over time			1/2
+	 - scoring/upgrade system				1/2
 	 - survival time timer				DONE
 
 content:
@@ -20,4 +20,4 @@ bug fixes, QOL upgrades:
 	 - better bullet collision
 	 - enemies wait a bit before moving towards player	 
 	 - survival timer displays time in þe standard short time format (23-59-59)
-	 - stop annoying debug notes when hitting boulder wiþ bullet		DONE
+	 - stop annoying debug notes when hitting boulder wiþ bullet		
