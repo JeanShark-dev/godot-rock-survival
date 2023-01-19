@@ -5,6 +5,7 @@ var hpMax = 130
 var apMax = 25
 var ap
 var hp
+var recovering = false
 signal scoreAdd(scorePlus)
 signal hpUpdate(HPValue, APValue)
 
@@ -18,13 +19,16 @@ func _ready():
 	hp = hpMax
 	ap = apMax
 
-func _process(_delta):
+func _process(delta):
 	handPosition = get_node("PlayerRBody").position
 	get_node("ProjectileContainer/Gun9mm").set_position(handPosition)
 	if Input.is_action_just_pressed("DEBUG1"):
 		takeDamage(10)
+	if recovering == true:
+		armorRecovery(delta)
 
 func takeDamage(damageNum):
+	recovering = false
 	if ap > 0:
 		if damageNum > ap:
 			damageNum -= ap
@@ -33,10 +37,20 @@ func takeDamage(damageNum):
 			ap -= damageNum
 			damageNum -= damageNum
 	hp -= damageNum
-	emit_signal("hpUpdate", str(hp), str(ap))
+	emit_signal("hpUpdate", str(ceil(hp)), str(ceil(ap)))
 	#print (ap, ", ", hp)
 	if hp <= 0:
 		die()
+	$ArmorTimer.start()
+
+func armorRecovery(delta):
+	emit_signal("hpUpdate", str(ceil(hp)), str(ceil(ap)))
+	if ap <= apMax:
+		ap += apMax/10 * delta
+	if ap >= apMax:
+		ap = apMax
+		recovering = false
+
 
 func die():
 	var parent = get_parent()
@@ -50,3 +64,11 @@ func _on_PlayerRBody_takingDamage(damageNum, damageSource):
 	#print("OW! Took ", damageNum,  " damage from ", damageSource, "!")
 	if damageSource != $PlayerRBody.get_rid():
 		takeDamage(damageNum)
+
+
+func _on_ArmorTimer_timeout():
+	recovering = true
+
+
+func _on_ReloadTimer_timeout():
+	pass # Replace with function body.

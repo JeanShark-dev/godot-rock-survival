@@ -8,6 +8,7 @@ var type
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AttackParticles.emitting = true
+	scale = Vector2(2,1)
 	#print(damage, source, type)
 
 

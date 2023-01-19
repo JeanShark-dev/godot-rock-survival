@@ -19,6 +19,9 @@ script = ExtResource( 4 )
 script = ExtResource( 2 )
 Bullet = ExtResource( 3 )
 
+[node name="ReloadTimer" type="Timer" parent="ProjectileContainer/Gun9mm"]
+one_shot = true
+
 [node name="PlayerRBody" type="RigidBody2D" parent="."]
 collision_layer = 3
 mass = 500.0
@@ -26,7 +29,7 @@ contacts_reported = 10
 contact_monitor = true
 linear_damp = 2.0
 script = ExtResource( 1 )
-baseMoveSpeed = 200.0
+baseMoveSpeed = 100.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerRBody"]
 remote_path = NodePath("../../Node2D")
@@ -60,6 +63,12 @@ margin_right = 360.0
 margin_bottom = 240.0
 rect_min_size = Vector2( 720, 480 )
 
+[node name="ArmorTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
 [connection signal="hpUpdate" from="." to="Node2D/GameUI" method="_on_PlayerContainer_hpUpdate"]
 [connection signal="scoreAdd" from="." to="Node2D/GameUI" method="_on_PlayerContainer_scoreAdd"]
+[connection signal="timeout" from="ProjectileContainer/Gun9mm/ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
 [connection signal="takingDamage" from="PlayerRBody" to="." method="_on_PlayerRBody_takingDamage"]
+[connection signal="timeout" from="ArmorTimer" to="." method="_on_ArmorTimer_timeout"]

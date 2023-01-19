@@ -13,6 +13,7 @@ var main
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	main = get_parent().get_parent().get_parent()
+	$GameplayUI/GUICenter/ReloadBar.hide()
 	#print(main)
 
 func _process(delta):
