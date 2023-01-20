@@ -9,6 +9,7 @@ onready var magCount = magSize
 onready var reserveAmmo = magSize * reserveMags
 onready var BulletContainer = get_node("..")
 var randomBulletSpread = 10
+var reloading = false
 
 
 
@@ -21,6 +22,7 @@ func _shoot():
 
 func Reload():
 	print("Reloading!")
+	reloading = true
 	$ReloadTimer.start()
 
 
@@ -30,8 +32,15 @@ func _process(delta):
 	if rechamberTime > 0:
 		rechamberTime -= 10*delta
 		pass
-	if (Input.is_action_just_pressed("gp_reload") && magCount < magSize):
+	if (Input.is_action_just_pressed("gp_reload") && magCount < magSize && reserveAmmo > 1):
 		Reload()
-	if (Input.is_action_pressed("M1") && rechamberTime == 0 && magCount > 1):
+	if (Input.is_action_pressed("M1") && rechamberTime == 0 && magCount > 1 && !reloading):
 		_shoot()
 		rechamberTime = rechamberTimeMax
+
+
+func _on_ReloadTimer_timeout():
+	rechamberTime = rechamberTimeMax * 2
+	reserveAmmo -= magSize
+	magCount = magSize
+	reloading = false

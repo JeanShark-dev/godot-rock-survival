@@ -18,6 +18,8 @@ script = ExtResource( 4 )
 [node name="Gun9mm" type="Node2D" parent="ProjectileContainer"]
 script = ExtResource( 2 )
 Bullet = ExtResource( 3 )
+magSize = 45
+reserveMags = 10
 
 [node name="ReloadTimer" type="Timer" parent="ProjectileContainer/Gun9mm"]
 one_shot = true
@@ -69,6 +71,6 @@ one_shot = true
 
 [connection signal="hpUpdate" from="." to="Node2D/GameUI" method="_on_PlayerContainer_hpUpdate"]
 [connection signal="scoreAdd" from="." to="Node2D/GameUI" method="_on_PlayerContainer_scoreAdd"]
-[connection signal="timeout" from="ProjectileContainer/Gun9mm/ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
+[connection signal="timeout" from="ProjectileContainer/Gun9mm/ReloadTimer" to="ProjectileContainer/Gun9mm" method="_on_ReloadTimer_timeout"]
 [connection signal="takingDamage" from="PlayerRBody" to="." method="_on_PlayerRBody_takingDamage"]
 [connection signal="timeout" from="ArmorTimer" to="." method="_on_ArmorTimer_timeout"]
