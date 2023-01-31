@@ -6,8 +6,11 @@ var apMax = 25
 var ap
 var hp
 var recovering = false
+var currentWeapon = $ProjectileContainer.get_child(0)
 signal scoreAdd(scorePlus)
 signal hpUpdate(HPValue, APValue)
+
+
 
 func _ready():
 	$Node2D/GameUI.rect_size = OS.window_size
@@ -20,10 +23,9 @@ func _ready():
 	ap = apMax
 
 func _process(delta):
-	handPosition = get_node("PlayerRBody").position
-	get_node("ProjectileContainer/Gun9mm").set_position(handPosition)
-	if Input.is_action_just_pressed("DEBUG1"):
-		takeDamage(10)
+	currentWeapon.set_position($PlayerRBody.position)
+	if Input.is_action_just_pressed("M1"):
+		currentWeapon.Shoot($PlayerRBody.position, get_global_mouse_position(), 1, $PlayerRBody.get_rid, 100, 1)
 	if recovering == true:
 		armorRecovery(delta)
 

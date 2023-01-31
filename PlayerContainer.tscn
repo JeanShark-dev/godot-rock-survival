@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://PlayerMovementBase.gd" type="Script" id=1]
-[ext_resource path="res://Gun9mm.gd" type="Script" id=2]
-[ext_resource path="res://9mm.tscn" type="PackedScene" id=3]
+[ext_resource path="res://WeaponBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://DefaultProjectile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://PlayerContainer.gd" type="Script" id=4]
 [ext_resource path="res://GameUI.tscn" type="PackedScene" id=5]
 
@@ -15,14 +15,8 @@ script = ExtResource( 4 )
 
 [node name="ProjectileContainer" type="Node2D" parent="."]
 
-[node name="Gun9mm" type="Node2D" parent="ProjectileContainer"]
-script = ExtResource( 2 )
-Bullet = ExtResource( 3 )
-magSize = 45
-reserveMags = 10
-
-[node name="ReloadTimer" type="Timer" parent="ProjectileContainer/Gun9mm"]
-one_shot = true
+[node name="Weapon" parent="ProjectileContainer" instance=ExtResource( 2 )]
+Projectile = ExtResource( 3 )
 
 [node name="PlayerRBody" type="RigidBody2D" parent="."]
 collision_layer = 3
@@ -71,6 +65,5 @@ one_shot = true
 
 [connection signal="hpUpdate" from="." to="Node2D/GameUI" method="_on_PlayerContainer_hpUpdate"]
 [connection signal="scoreAdd" from="." to="Node2D/GameUI" method="_on_PlayerContainer_scoreAdd"]
-[connection signal="timeout" from="ProjectileContainer/Gun9mm/ReloadTimer" to="ProjectileContainer/Gun9mm" method="_on_ReloadTimer_timeout"]
 [connection signal="takingDamage" from="PlayerRBody" to="." method="_on_PlayerRBody_takingDamage"]
 [connection signal="timeout" from="ArmorTimer" to="." method="_on_ArmorTimer_timeout"]
