@@ -22,6 +22,7 @@ func _shoot():
 
 func Reload():
 	print("Reloading!")
+	print(reserveAmmo)
 	reloading = true
 	$ReloadTimer.start()
 
