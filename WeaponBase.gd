@@ -11,4 +11,5 @@ func Shoot(position, target, damageModifier, damageSource, velocity, imprecision
 	projectile.position = position
 	projectile.look_at(target)
 	projectile.rotation += rand_range(-imprecision, imprecision)
+	projectile.Shoot(velocity)
 	

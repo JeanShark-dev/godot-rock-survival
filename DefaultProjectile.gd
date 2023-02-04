@@ -1,5 +1,10 @@
 extends RigidBody2D
 
 
-func Shoot():
-	pass
+var damage
+var source
+
+func Shoot(velocity):
+	print(rotation,position)
+	apply_central_impulse(Vector2().rotated(rotation)*velocity)
+	print("Projectile shot successfully")

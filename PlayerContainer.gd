@@ -6,7 +6,7 @@ var apMax = 25
 var ap
 var hp
 var recovering = false
-var currentWeapon = $ProjectileContainer.get_child(0)
+onready var currentWeapon = $ProjectileContainer.get_child(0)
 signal scoreAdd(scorePlus)
 signal hpUpdate(HPValue, APValue)
 
@@ -25,7 +25,7 @@ func _ready():
 func _process(delta):
 	currentWeapon.set_position($PlayerRBody.position)
 	if Input.is_action_just_pressed("M1"):
-		currentWeapon.Shoot($PlayerRBody.position, get_global_mouse_position(), 1, $PlayerRBody.get_rid, 100, 1)
+		currentWeapon.Shoot($PlayerRBody.position, get_global_mouse_position(), 1, $PlayerRBody.get_rid(), 100, 1)
 	if recovering == true:
 		armorRecovery(delta)
 
