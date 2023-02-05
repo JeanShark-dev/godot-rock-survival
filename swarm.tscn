@@ -124,7 +124,6 @@ one_shot = true
 
 [node name="AttackDirection" type="RayCast2D" parent="."]
 
-[connection signal="takingDamage" from="." to="." method="_on_EnemyRBody_takingDamage"]
 [connection signal="body_shape_entered" from="EnemyVision" to="." method="_on_EnemyVision_body_shape_entered"]
 [connection signal="body_shape_exited" from="EnemyVision" to="." method="_on_EnemyVision_body_shape_exited"]
 [connection signal="timeout" from="GiveUpTimer" to="." method="_on_GiveUpTimer_timeout"]

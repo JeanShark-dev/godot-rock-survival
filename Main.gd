@@ -26,7 +26,7 @@ func startGame():
 	#player = get_node("PlayerContainer")
 	#connect("scoreAdd", player, "on_Main_scoreAdd")
 	spawnBoulder(rand_range(1,40))
-	#$SpawnTimer.start()
+	$SpawnTimer.start()
 
 func spawnEnemy(amount):
 	for i in amount:

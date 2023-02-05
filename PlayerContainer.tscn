@@ -15,14 +15,21 @@ script = ExtResource( 4 )
 
 [node name="ProjectileContainer" type="Node2D" parent="."]
 
-[node name="Weapon" parent="ProjectileContainer" instance=ExtResource( 2 )]
+[node name="WeaponContainer" type="Node2D" parent="ProjectileContainer"]
+
+[node name="Weapon" parent="ProjectileContainer/WeaponContainer" instance=ExtResource( 2 )]
 Projectile = ExtResource( 3 )
+muzzleVelocity = 1000.0
+imprecision = 10.0
+barrelLength = 25.0
+weaponDamage = 1.0
 
 [node name="PlayerRBody" type="RigidBody2D" parent="."]
 collision_layer = 3
 mass = 500.0
 contacts_reported = 10
 contact_monitor = true
+can_sleep = false
 linear_damp = 2.0
 script = ExtResource( 1 )
 baseMoveSpeed = 100.0

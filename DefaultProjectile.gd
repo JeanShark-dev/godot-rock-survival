@@ -1,10 +1,19 @@
 extends RigidBody2D
 
 
-var damage
+export (float) var damage
 var source
 
-func Shoot(velocity):
-	print(rotation,position)
-	apply_central_impulse(Vector2().rotated(rotation)*velocity)
-	print("Projectile shot successfully")
+func Shoot(velocity,target):
+	rotation = target.angle() + 0.5 * PI
+	apply_central_impulse(Vector2(target-position).normalized() * velocity)
+
+
+
+func _on_Timer_timeout():
+	queue_free()
+
+
+func _on_DefaultProjectile_body_entered(body):
+	if body.has_method("takeDamage"):
+		body.takeDamage(damage, source)

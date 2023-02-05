@@ -5,7 +5,7 @@ export var speed = 1000
 var damage = 20
 var source
 
-func shoot(aim_position, gun_position, fireSource, spread):
+func Shoot(aim_position, gun_position, fireSource, spread):
 	source = fireSource
 	position = gun_position
 	direction = (aim_position - gun_position + Vector2(randi()%spread*2 - spread, randi()%spread*2 - spread)).normalized()

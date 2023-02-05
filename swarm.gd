@@ -9,7 +9,7 @@ var canTakeDamage = true
 var target = Vector2()
 var seesPlayer = false
 var targetObject
-signal takingDamage(damageNum, damageSource)
+#signal takingDamage(damageNum, damageSource)
 signal dead(value)
 var dying = false
 var canAttack = true
@@ -30,12 +30,13 @@ func _process(_delta):
 		$AttackTimer.wait_time = 1
 		$AttackTimer.start()
 
-func takeDamage(damageNum):
-	if dying:
-		pass
+func takeDamage(damageNum,damageSource):
+	if dying == true or damageSource == get_rid():
+		return
 	incomingDamage = damageNum
 	HP -= incomingDamage
 	incomingDamage -= incomingDamage
+#	print("Took damage:", damageNum)
 	if HP <= 0:
 		dying = true
 		die()
@@ -75,10 +76,10 @@ func _on_DeaTimer_timeout():
 	queue_free()
 
 
-func _on_EnemyRBody_takingDamage(damageNum, damageSource):
-	if damageSource != self.get_rid():
-		takeDamage(damageNum)
-	#print("OW! Took ", damageNum,  " damage from ", damageSource, "!")
+#func _on_EnemyRBody_takingDamage(damageNum, damageSource):
+#	if damageSource != self.get_rid():
+#		takeDamage(damageNum)
+#	#print("OW! Took ", damageNum,  " damage from ", damageSource, "!")
 
 
 func _on_AttackTimer_timeout():
