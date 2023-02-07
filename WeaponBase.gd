@@ -6,10 +6,14 @@ export (float) var muzzleVelocity
 export (float) var imprecision
 export (float) var barrelLength
 export (float) var weaponDamage
+export (float) var rechamberTime
 var canShoot = true
 var target = Vector2()
 var playerDamage
 var damageSource
+
+func _ready():
+	$RechamberTimer.wait_time = rechamberTime
 
 func _process(delta):
 	if Input.is_action_pressed("M1") and canShoot == true:

@@ -21,5 +21,8 @@ func _on_LifetimeTimer_timeout():
 	queue_free()
 
 
-func _on_Attack_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
-	body.emit_signal("takingDamage", damage, source)
+
+func _on_Attack_body_entered(body):
+	if body.has_method("takeDamage"):
+		body.takeDamage(damage, source)
+

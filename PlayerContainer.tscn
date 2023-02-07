@@ -19,10 +19,11 @@ script = ExtResource( 4 )
 
 [node name="Weapon" parent="ProjectileContainer/WeaponContainer" instance=ExtResource( 2 )]
 Projectile = ExtResource( 3 )
-muzzleVelocity = 1000.0
+muzzleVelocity = 3000.0
 imprecision = 10.0
-barrelLength = 25.0
-weaponDamage = 1.0
+barrelLength = 40.0
+weaponDamage = 25.0
+rechamberTime = 1.0
 
 [node name="PlayerRBody" type="RigidBody2D" parent="."]
 collision_layer = 3

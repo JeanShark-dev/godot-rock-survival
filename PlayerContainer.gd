@@ -29,7 +29,9 @@ func _process(delta):
 	if recovering == true:
 		armorRecovery(delta)
 
-func takeDamage(damageNum):
+func takeDamage(damageNum, damageSource):
+	if damageSource == $PlayerRBody.get_rid():
+		return
 	recovering = false
 	if ap > 0:
 		if damageNum > ap:
@@ -65,7 +67,7 @@ func _on_Main_scoreAdd(scorePlus):
 func _on_PlayerRBody_takingDamage(damageNum, damageSource):
 	#print("OW! Took ", damageNum,  " damage from ", damageSource, "!")
 	if damageSource != $PlayerRBody.get_rid():
-		takeDamage(damageNum)
+		takeDamage(damageNum, damageSource)
 
 
 func _on_ArmorTimer_timeout():

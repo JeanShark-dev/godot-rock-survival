@@ -21,4 +21,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	apply_central_impulse(moveVelocity*delta*mass*2)
+
+func takeDamage(damage, source):
+	emit_signal("takingDamage", damage, source)
 	
