@@ -6,13 +6,15 @@ var apMax = 25
 var ap
 var hp
 var recovering = false
-onready var currentWeapon = $ProjectileContainer/WeaponContainer.get_child(0)
+onready var currentWeapon = $WeaponSlot.get_child(0)
+var weaponIndex = 0
 signal scoreAdd(scorePlus)
 signal hpUpdate(HPValue, APValue)
 
 
 
 func _ready():
+	currentWeapon.isCurrentWeapon = true
 	$Node2D/GameUI.rect_size = OS.window_size
 	$Node2D/GameUI.rect_position = -OS.window_size/2
 	var parent = get_parent()
@@ -24,8 +26,11 @@ func _ready():
 
 func _process(delta):
 	currentWeapon.set_position($PlayerRBody.position)
+	if Input.is_action_just_pressed("gp_tab"):
+		swapWeapon()
 	if Input.is_action_pressed("M1"):
-		currentWeapon.Update($Node2D.get_local_mouse_position(), 10, $PlayerRBody.get_rid())
+		currentWeapon.Update($Node2D.get_local_mouse_position(), 1, $PlayerRBody.get_rid())
+#		print("Fire command given.")
 	if recovering == true:
 		armorRecovery(delta)
 
@@ -59,6 +64,20 @@ func armorRecovery(delta):
 func die():
 	var parent = get_parent()
 	parent.reset()
+
+
+func swapWeapon():
+	currentWeapon.isCurrentWeapon = false
+	var weaponsCount = $WeaponsInventory.get_child_count()
+	weaponIndex += 1
+	if weaponIndex > weaponsCount - 1:
+		weaponIndex = 0
+	var newWeapon = $WeaponsInventory.get_child(weaponIndex)
+	$WeaponSlot.remove_child(currentWeapon)
+	$WeaponSlot.add_child(newWeapon)
+	currentWeapon = newWeapon
+	currentWeapon.isCurrentWeapon = true
+	
 
 func _on_Main_scoreAdd(scorePlus):
 	emit_signal("scoreAdd", scorePlus)

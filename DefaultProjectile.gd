@@ -16,4 +16,5 @@ func _on_Timer_timeout():
 
 func _on_DefaultProjectile_body_entered(body):
 	if body.has_method("takeDamage"):
+#		print("Target can take damage.")
 		body.takeDamage(damage, source)

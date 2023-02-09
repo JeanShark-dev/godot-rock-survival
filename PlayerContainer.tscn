@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://PlayerMovementBase.gd" type="Script" id=1]
 [ext_resource path="res://WeaponBase.tscn" type="PackedScene" id=2]
 [ext_resource path="res://DefaultProjectile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://PlayerContainer.gd" type="Script" id=4]
 [ext_resource path="res://GameUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://PistolSemiAuto.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -13,11 +14,15 @@
 [node name="PlayerContainer" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="ProjectileContainer" type="Node2D" parent="."]
+[node name="WeaponSlot" type="Node2D" parent="."]
 
-[node name="WeaponContainer" type="Node2D" parent="ProjectileContainer"]
+[node name="PistolSemiAuto" parent="WeaponSlot" instance=ExtResource( 6 )]
 
-[node name="Weapon" parent="ProjectileContainer/WeaponContainer" instance=ExtResource( 2 )]
+[node name="WeaponsInventory" type="Node2D" parent="."]
+
+[node name="PistolSemiAuto" parent="WeaponsInventory" instance=ExtResource( 6 )]
+
+[node name="Weapon" parent="WeaponsInventory" instance=ExtResource( 2 )]
 Projectile = ExtResource( 3 )
 muzzleVelocity = 3000.0
 imprecision = 10.0

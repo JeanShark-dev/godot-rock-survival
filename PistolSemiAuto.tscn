@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://WeaponBase.gd" type="Script" id=1]
+[ext_resource path="res://Bullet9mm.tscn" type="PackedScene" id=2]
+
+[node name="PistolSemiAuto" type="Node2D"]
+script = ExtResource( 1 )
+Projectile = ExtResource( 2 )
+muzzleVelocity = 1750.0
+imprecision = 15.0
+barrelLength = 15.0
+weaponDamage = 1.0
+rechamberTime = 0.1
+
+[node name="RechamberTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="RechamberTimer" to="." method="_on_RechamberTimer_timeout"]
