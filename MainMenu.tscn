@@ -78,6 +78,13 @@ margin_bottom = 53.0
 text = "ESCAPE to open pause menu"
 fit_content_height = true
 
+[node name="RichTextLabel4" type="RichTextLabel" parent="ColorRect/VBoxContainer"]
+margin_top = 57.0
+margin_right = 456.0
+margin_bottom = 72.0
+text = "TAB to switch between weapons"
+fit_content_height = true
+
 [connection signal="button_down" from="VBoxContainer/GameStartButton" to="." method="_on_GameStartButton_button_down"]
 [connection signal="button_down" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_button_down"]
 [connection signal="button_down" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_button_down"]
