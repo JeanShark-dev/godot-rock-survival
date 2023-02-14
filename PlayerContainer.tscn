@@ -17,10 +17,12 @@ script = ExtResource( 4 )
 [node name="WeaponSlot" type="Node2D" parent="."]
 
 [node name="PistolSemiAuto" parent="WeaponSlot" instance=ExtResource( 6 )]
+isAuto = true
 
 [node name="WeaponsInventory" type="Node2D" parent="."]
 
 [node name="PistolSemiAuto" parent="WeaponsInventory" instance=ExtResource( 6 )]
+isAuto = true
 
 [node name="Weapon" parent="WeaponsInventory" instance=ExtResource( 2 )]
 Projectile = ExtResource( 3 )

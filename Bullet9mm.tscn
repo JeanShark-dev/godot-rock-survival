@@ -1,10 +1,32 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://DefaultProjectile.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 1.97441
 height = 0.547636
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.10453, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 15.0
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 154.3
+angle_random = 1.0
+scale = 1.1
+scale_random = 1.0
+scale_curve = SubResource( 4 )
+color = Color( 0.980392, 0.792157, 0.670588, 1 )
+hue_variation = 0.1
+hue_variation_random = 0.51
 
 [node name="Bullet9mm" type="RigidBody2D"]
 contacts_reported = 10
@@ -15,6 +37,15 @@ damage = 15.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+scale = Vector2( 1, 1 )
+amount = 100
+lifetime = 2.0
+speed_scale = 1.5
+local_coords = false
+draw_order = 1
+process_material = SubResource( 2 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 scale = Vector2( 0.1, 0.1 )
