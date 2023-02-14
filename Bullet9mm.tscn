@@ -38,19 +38,20 @@ damage = 15.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2( 0.1, 0.1 )
+color = Color( 0.827451, 0.623529, 0.443137, 1 )
+polygon = PoolVector2Array( -8.77261, 19.3909, 9.49081, 19.6136, 9.49081, -12.4587, 5.25905, -19.1405, -0.0863495, -21.5904, -5.87719, -19.1405, -9.88623, -13.3496, -9.21806, 17.3864 )
+
 [node name="Particles2D" type="Particles2D" parent="."]
-scale = Vector2( 1, 1 )
-amount = 100
+position = Vector2( -0.0496063, 1.63701 )
+z_index = -1
+amount = 1000
 lifetime = 2.0
 speed_scale = 1.5
 local_coords = false
 draw_order = 1
 process_material = SubResource( 2 )
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-scale = Vector2( 0.1, 0.1 )
-color = Color( 0.827451, 0.623529, 0.443137, 1 )
-polygon = PoolVector2Array( -8.77261, 19.3909, 9.49081, 19.6136, 9.49081, -12.4587, 5.25905, -19.1405, -0.0863495, -21.5904, -5.87719, -19.1405, -9.88623, -13.3496, -9.21806, 17.3864 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

@@ -14,23 +14,33 @@
 [node name="PlayerContainer" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="GameUI" parent="Node2D" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -360.0
+margin_top = -240.0
+margin_right = 360.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 720, 480 )
+
 [node name="WeaponSlot" type="Node2D" parent="."]
 
-[node name="PistolSemiAuto" parent="WeaponSlot" instance=ExtResource( 6 )]
+[node name="Weapon" parent="WeaponSlot" instance=ExtResource( 2 )]
+Projectile = ExtResource( 3 )
+muzzleVelocity = 750.0
+imprecision = 10.0
+barrelLength = 40.0
+weaponDamage = 25.0
+rechamberTime = 2.0
 isAuto = true
 
 [node name="WeaponsInventory" type="Node2D" parent="."]
 
 [node name="PistolSemiAuto" parent="WeaponsInventory" instance=ExtResource( 6 )]
-isAuto = true
-
-[node name="Weapon" parent="WeaponsInventory" instance=ExtResource( 2 )]
-Projectile = ExtResource( 3 )
-muzzleVelocity = 3000.0
-imprecision = 10.0
-barrelLength = 40.0
-weaponDamage = 25.0
-rechamberTime = 1.0
+imprecision = 7.5
+weaponDamage = 1.5
 
 [node name="PlayerRBody" type="RigidBody2D" parent="."]
 collision_layer = 3
@@ -62,17 +72,6 @@ gravity_vec = Vector2( 0, 0 )
 
 [node name="HitboxBoundary" type="CollisionShape2D" parent="PlayerRBody/PlayerHitbox"]
 shape = SubResource( 2 )
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="GameUI" parent="Node2D" instance=ExtResource( 5 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -360.0
-margin_top = -240.0
-margin_right = 360.0
-margin_bottom = 240.0
-rect_min_size = Vector2( 720, 480 )
 
 [node name="ArmorTimer" type="Timer" parent="."]
 wait_time = 6.0

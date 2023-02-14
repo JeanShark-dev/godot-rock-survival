@@ -6,7 +6,7 @@ var apMax = 25
 var ap
 var hp
 var recovering = false
-onready var currentWeapon = $WeaponSlot.get_child(0)
+var currentWeapon
 var weaponIndex = 0
 signal scoreAdd(scorePlus)
 signal hpUpdate(HPValue, APValue)
@@ -14,6 +14,7 @@ signal hpUpdate(HPValue, APValue)
 
 
 func _ready():
+	currentWeapon = $WeaponSlot.get_child(0)
 	currentWeapon.isCurrentWeapon = true
 	$Node2D/GameUI.rect_size = OS.window_size
 	$Node2D/GameUI.rect_position = -OS.window_size/2
@@ -74,6 +75,8 @@ func swapWeapon():
 		weaponIndex = 0
 	var newWeapon = $WeaponsInventory.get_child(weaponIndex)
 	$WeaponSlot.remove_child(currentWeapon)
+	$WeaponsInventory.remove_child(newWeapon)
+	$WeaponsInventory.add_child(currentWeapon)
 	$WeaponSlot.add_child(newWeapon)
 	currentWeapon = newWeapon
 	currentWeapon.isCurrentWeapon = true

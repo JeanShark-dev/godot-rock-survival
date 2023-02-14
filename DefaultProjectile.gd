@@ -4,9 +4,17 @@ extends RigidBody2D
 export (float) var damage
 var source
 
+
+func _ready():
+	position = get_parent().position
+
+
 func Shoot(velocity,target):
-	rotation = target.angle() + 0.5 * PI
+
 	apply_central_impulse(Vector2(target-position).normalized() * velocity)
+	var newParent = get_parent().get_parent().get_parent()
+	get_parent().remove_child(self)
+	newParent.add_child(self)
 
 
 
