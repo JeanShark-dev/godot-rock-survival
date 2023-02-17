@@ -40,7 +40,6 @@ isAuto = true
 
 [node name="PistolSemiAuto" parent="WeaponsInventory" instance=ExtResource( 6 )]
 imprecision = 7.5
-weaponDamage = 1.5
 
 [node name="PlayerRBody" type="RigidBody2D" parent="."]
 collision_layer = 3

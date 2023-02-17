@@ -16,7 +16,7 @@ var canAttack = true
 
 func _physics_process(delta):
 	if position.distance_to(target) > attackRange:
-		apply_central_impulse(position.direction_to(target)*speed)
+		apply_central_impulse(position.direction_to(target)*speed*delta*mass)
 
 func _process(_delta):
 	if !seesPlayer && $GiveUpTimer.wait_time == 20:

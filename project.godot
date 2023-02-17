@@ -71,6 +71,9 @@ gp_tab={
 
 [physics]
 
+common/physics_fps=240
+2d/physics_engine="GodotPhysics"
+2d/thread_model=2
 2d/default_gravity_vector=Vector2( 0, 0 )
 
 [rendering]

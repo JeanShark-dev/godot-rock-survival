@@ -10,7 +10,6 @@ func _ready():
 
 
 func Shoot(velocity,target):
-
 	apply_central_impulse(Vector2(target-position).normalized() * velocity)
 	var newParent = get_parent().get_parent().get_parent()
 	get_parent().remove_child(self)
