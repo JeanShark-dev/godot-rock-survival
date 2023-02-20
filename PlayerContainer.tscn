@@ -42,6 +42,7 @@ isAuto = true
 imprecision = 7.5
 
 [node name="PlayerRBody" type="RigidBody2D" parent="."]
+z_index = -1
 collision_layer = 3
 mass = 500.0
 contacts_reported = 10

@@ -65,7 +65,11 @@ func _on_SpawnTimer_timeout():
 	if spawnBucket >= spawnThreshhold:
 		spawnEnemy(rand_range(1, 10))
 
-func _on_EnemyRBody_dead(value):
+func _on_EnemyRBody_dead(value, position):
+	var scoreItem = load("ScoreItem.tscn").instance()
+	if rand_range(1, 3) != 1:
+		scoreItem.position = position
+		add_child(scoreItem)
 	spawnBucket += value
 	self.emit_signal("scoreAdd", value)
 

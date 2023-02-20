@@ -24,4 +24,6 @@ func _physics_process(delta):
 
 func takeDamage(damage, source):
 	emit_signal("takingDamage", damage, source)
-	
+
+func scoreAdd(score):
+	get_parent().emit_signal("scoreAdd", score)

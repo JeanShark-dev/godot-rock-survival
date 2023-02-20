@@ -19,6 +19,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		$PauseMenu.visible = !$PauseMenu.visible
+		get_tree().paused = !get_tree().paused
 
 func _on_Timer_timeout():
 	missionTime += 1

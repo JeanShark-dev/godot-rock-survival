@@ -10,7 +10,7 @@ var target = Vector2()
 var seesPlayer = false
 var targetObject
 #signal takingDamage(damageNum, damageSource)
-signal dead(value)
+signal dead(value, position)
 var dying = false
 var canAttack = true
 
@@ -53,6 +53,7 @@ func die():
 	$EnemySpriteTemp.hide()
 	$EnemyHitbox.scale = Vector2(0,0)
 	$"DeaþEffect".emitting = true
+	emit_signal("dead", 1, position)
 	$"DeaþTimer".start()
 
 func _on_EnemyVision_body_shape_entered(body_id, body, body_shape, area_shape):
@@ -72,7 +73,6 @@ func _on_GiveUpTimer_timeout():
 
 
 func _on_DeaTimer_timeout():
-	emit_signal("dead", 100)
 	queue_free()
 
 

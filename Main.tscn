@@ -4,13 +4,17 @@
 [ext_resource path="res://Main.gd" type="Script" id=4]
 
 [node name="Main" type="Node"]
+pause_mode = 2
 script = ExtResource( 4 )
 
 [node name="WorldContainer" type="Node2D" parent="."]
+pause_mode = 1
 
 [node name="EnemyContainer" type="Node2D" parent="."]
+pause_mode = 1
 
 [node name="SpawnTimer" type="Timer" parent="."]
+pause_mode = 1
 wait_time = 0.5
 
 [node name="UIContainer" type="Control" parent="."]
