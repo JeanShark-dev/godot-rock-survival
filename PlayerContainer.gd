@@ -29,11 +29,17 @@ func _process(delta):
 	currentWeapon.set_position($PlayerRBody.position)
 	if Input.is_action_just_pressed("gp_tab"):
 		swapWeapon()
+	if Input.is_action_just_pressed("DEBUG1"):
+		hp += 10
+		emit_signal("hpUpdate", str(ceil(hp)), str(ceil(ap)))
 	if Input.is_action_pressed("M1"):
 		currentWeapon.Update($Node2D.get_local_mouse_position(), 1, $PlayerRBody.get_rid())
 #		print("Fire command given.")
 	if recovering == true:
 		armorRecovery(delta)
+	if hp > hpMax:
+		reduceOverheal(delta)
+	
 
 func takeDamage(damageNum, damageSource):
 	if damageSource == $PlayerRBody.get_rid():
@@ -61,6 +67,12 @@ func armorRecovery(delta):
 		ap = apMax
 		recovering = false
 
+
+func reduceOverheal(delta):
+	emit_signal("hpUpdate", str(ceil(hp)), str(ceil(ap)))
+	hp -= 10 * delta
+	if hp < hpMax:
+		hp = ceil(hp)
 
 func die():
 	var parent = get_parent()

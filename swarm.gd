@@ -3,6 +3,7 @@ extends RigidBody2D
 export (float) var speed
 export (float) var maxHP
 export (float) var attackRange
+export (float) var attackDamage = 10
 onready var HP = maxHP
 var incomingDamage = 0
 var canTakeDamage = true
@@ -53,6 +54,11 @@ func die():
 	$EnemySpriteTemp.hide()
 	$EnemyHitbox.scale = Vector2(0,0)
 	$"DeaþEffect".emitting = true
+	speed = 0
+	attackDamage = 0
+	collision_layer = 0
+	collision_mask = 0
+	canAttack = false
 	emit_signal("dead", 1, position)
 	$"DeaþTimer".start()
 
@@ -83,6 +89,6 @@ func _on_DeaTimer_timeout():
 
 
 func _on_AttackTimer_timeout():
-	attack(10, "enemy")
+	attack(attackDamage, "enemy")
 	canAttack = true
 	look_at(target)

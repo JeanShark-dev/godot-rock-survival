@@ -19,7 +19,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		$PauseMenu.visible = !$PauseMenu.visible
-		get_tree().paused = !get_tree().paused
+		get_tree().paused = $PauseMenu.visible
 
 func _on_Timer_timeout():
 	missionTime += 1
@@ -39,6 +39,7 @@ func _on_PlayerContainer_hpUpdate(HPValue, APValue):
 
 func _on_ResumeButton_button_down():
 	$PauseMenu.visible = false
+	get_tree().paused = false
 
 
 func _on_OptionsButton_button_down():
