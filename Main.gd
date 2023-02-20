@@ -51,6 +51,7 @@ func spawnBoulder(amount):
 
 func reset():
 	$SpawnTimer.stop()
+	get_tree().paused = false
 	while ($WorldContainer.get_child_count() != 0):
 		$WorldContainer.remove_child($WorldContainer.get_child(0))
 	while ($EnemyContainer.get_child_count() != 0):
