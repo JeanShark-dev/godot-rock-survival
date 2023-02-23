@@ -26,7 +26,7 @@ func startGame():
 	#player = get_node("PlayerContainer")
 	#connect("scoreAdd", player, "on_Main_scoreAdd")
 	spawnBoulder(rand_range(1,40))
-	$SpawnTimer.start()
+#	$SpawnTimer.start()
 
 func spawnEnemy(amount):
 	for i in amount:
@@ -70,7 +70,7 @@ func _on_EnemyRBody_dead(value, position):
 	var scoreItem = load("ScoreItem.tscn").instance()
 	if rand_range(1, 3) != 1:
 		scoreItem.position = position
-		add_child(scoreItem)
+		$WorldContainer.add_child(scoreItem)
 	spawnBucket += value
 	self.emit_signal("scoreAdd", value)
 

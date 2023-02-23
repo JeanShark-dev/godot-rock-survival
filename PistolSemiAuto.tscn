@@ -1,11 +1,34 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://MagazineFed.gd" type="Script" id=1]
+[ext_resource path="res://Bullet9mm.tscn" type="PackedScene" id=2]
 
 [node name="PistolSemiAuto" type="Node2D"]
 script = ExtResource( 1 )
+Projectile = ExtResource( 2 )
+muzzleVelocity = 1750.0
+imprecision = 10.0
+barrelLength = 20.0
+weaponDamage = 10.0
+rechamberTime = 0.1
+isAuto = true
+magSize = 13
+magAmount = 3
+maxAmmo = 130
+reloadTime = 1.0
 
 [node name="RechamberTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ReplenishTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="MagContainer" type="Node2D" parent="."]
+
 [connection signal="timeout" from="RechamberTimer" to="." method="_on_RechamberTimer_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
+[connection signal="timeout" from="ReplenishTimer" to="." method="_on_ReplenishTimer_timeout"]

@@ -26,6 +26,7 @@ margin_bottom = 240.0
 rect_min_size = Vector2( 720, 480 )
 
 [node name="WeaponSlot" type="Node2D" parent="."]
+pause_mode = 1
 
 [node name="Weapon" parent="WeaponSlot" instance=ExtResource( 2 )]
 Projectile = ExtResource( 3 )
@@ -37,6 +38,7 @@ rechamberTime = 2.0
 isAuto = true
 
 [node name="WeaponsInventory" type="Node2D" parent="."]
+pause_mode = 1
 
 [node name="PistolSemiAuto" parent="WeaponsInventory" instance=ExtResource( 6 )]
 imprecision = 7.5
@@ -74,6 +76,7 @@ gravity_vec = Vector2( 0, 0 )
 shape = SubResource( 2 )
 
 [node name="ArmorTimer" type="Timer" parent="."]
+pause_mode = 1
 wait_time = 6.0
 one_shot = true
 
