@@ -23,7 +23,6 @@ one_shot = true
 one_shot = true
 
 [node name="ReplenishTimer" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [node name="MagContainer" type="Node2D" parent="."]
