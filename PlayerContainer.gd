@@ -10,6 +10,7 @@ var currentWeapon
 var weaponIndex = 0
 signal scoreAdd(scorePlus)
 signal hpUpdate(HPValue, APValue)
+signal ammoUpdate(magAmmo, mags, backupAmmo)
 
 
 
@@ -24,6 +25,7 @@ func _ready():
 	emit_signal("hpUpdate", str(hpMax), str(apMax))
 	hp = hpMax
 	ap = apMax
+
 
 func _process(delta):
 	currentWeapon.set_position($PlayerRBody.position)
@@ -59,6 +61,7 @@ func takeDamage(damageNum, damageSource):
 		die()
 	$ArmorTimer.start()
 
+
 func armorRecovery(delta):
 	emit_signal("hpUpdate", str(ceil(hp)), str(ceil(ap)))
 	if ap <= apMax:
@@ -73,6 +76,7 @@ func reduceOverheal(delta):
 	hp -= 10 * delta
 	if hp < hpMax:
 		hp = ceil(hp)
+
 
 func die():
 	var parent = get_parent()
@@ -96,6 +100,10 @@ func swapWeapon():
 
 func _on_Main_scoreAdd(scorePlus):
 	emit_signal("scoreAdd", scorePlus)
+
+
+func _on_Weapon_ammoUpdate(magAmmo, mags, backupAmmo):
+	print(magAmmo, mags, backupAmmo)
 
 
 func _on_PlayerRBody_takingDamage(damageNum, damageSource):

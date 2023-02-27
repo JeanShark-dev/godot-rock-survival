@@ -54,7 +54,7 @@ margin_right = 514.0
 margin_bottom = 8.0
 mouse_filter = 2
 size_flags_horizontal = 0
-value = 50.0
+rounded = true
 percent_visible = false
 
 [node name="PauseMenu" type="Control" parent="."]

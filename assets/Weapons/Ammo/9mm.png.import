@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/9mm.png-69baee9fdf5007fe1b8c2763af8dfdee.stex"
+path="res://.import/9mm.png-ec81b01b69452c8fb2b3283b6b30ba5d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/9mm.png"
-dest_files=[ "res://.import/9mm.png-69baee9fdf5007fe1b8c2763af8dfdee.stex" ]
+source_file="res://assets/Weapons/Ammo/9mm.png"
+dest_files=[ "res://.import/9mm.png-ec81b01b69452c8fb2b3283b6b30ba5d.stex" ]
 
 [params]
 

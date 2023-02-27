@@ -80,6 +80,7 @@ pause_mode = 1
 wait_time = 6.0
 one_shot = true
 
+[connection signal="ammoUpdate" from="." to="Node2D/GameUI" method="_on_PlayerContainer_ammoUpdate"]
 [connection signal="hpUpdate" from="." to="Node2D/GameUI" method="_on_PlayerContainer_hpUpdate"]
 [connection signal="scoreAdd" from="." to="Node2D/GameUI" method="_on_PlayerContainer_scoreAdd"]
 [connection signal="takingDamage" from="PlayerRBody" to="." method="_on_PlayerRBody_takingDamage"]

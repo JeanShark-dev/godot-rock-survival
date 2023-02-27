@@ -10,16 +10,22 @@ var ammoLeft
 var magazineBase = load("Magazine.tscn")
 var currentMag
 var replenishingMag
+var mags
+signal ammoUpdate(magAmmo, mags, backupAmmo)
 
 func _ready():
 	ammoLeft = maxAmmo
 	$ReloadTimer.wait_time = reloadTime
-	for i in range(magAmount):
+	for _i in range(magAmount):
 		var magazine = magazineBase.instance()
 		magazine.amount = magSize
 		$MagContainer.add_child(magazine)
 	$MagContainer.get_child(0).isCurrent = true
 	currentMag = $MagContainer.get_child(0)
+# warning-ignore:return_value_discarded
+	connect("ammoUpdate", get_parent().get_parent(), "_on_Weapon_ammoUpdate")
+	emit_signal("ammoUpdate", currentMag.amount, $MagContainer.get_children(), ammoLeft)
+	
 
 
 func _process(_delta):
@@ -28,9 +34,11 @@ func _process(_delta):
 	if Input.is_action_pressed("M1") and canShoot == true and isAuto == true:
 		Shoot()
 		currentMag.amount -= 1
+		emit_signal("ammoUpdate", currentMag.amount, $MagContainer.get_children(), ammoLeft)
 	elif Input.is_action_just_pressed("M1") and canShoot == true:
 		Shoot()
 		currentMag.amount -= 1
+		emit_signal("ammoUpdate", currentMag.amount, $MagContainer.get_children(), ammoLeft)
 	if Input.is_action_just_pressed("gp_reload") && currentMag.amount < magSize:
 		canShoot = false
 		$ReloadTimer.start()
@@ -42,8 +50,6 @@ func _process(_delta):
 		$ReplenishTimer.stop()
 		$ReplenishTimer.paused = false
 		canShoot = true
-
-
 
 
 func reload():
@@ -64,6 +70,7 @@ func reload():
 		return
 	print("Reloaded!")
 	currentMag.isCurrent = true
+	emit_signal("ammoUpdate", currentMag.amount, $MagContainer.get_children(), ammoLeft)
 	$RechamberTimer.start()
 
 
@@ -73,11 +80,12 @@ func replenishMags():
 		if $MagContainer.get_child(i).amount < magSize:
 			replenishingMag = $MagContainer.get_child(i)
 			$ReplenishTimer.start()
+			emit_signal("ammoUpdate", currentMag.amount, $MagContainer.get_children(), ammoLeft)
 			return
 	print("All mags full. Reloading...")
 	print(ammoLeft, " ammo left.")
+	emit_signal("ammoUpdate", currentMag.amount, $MagContainer.get_children(), ammoLeft)
 	reload()
-
 
 
 func _on_RechamberTimer_timeout():
@@ -86,7 +94,6 @@ func _on_RechamberTimer_timeout():
 		return
 	print("Out of ammo. Reloading...")
 	$ReloadTimer.start()
-
 
 
 func _on_ReloadTimer_timeout():
