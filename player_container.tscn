@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfb7jvlg72vho"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_khiof"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s1jq7"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="PlayerContainer" type="Node2D"]
+
+[node name="PlayerRigidBody" type="RigidBody2D" parent="."]
+mass = 60.0
+contact_monitor = true
+can_sleep = false
+lock_rotation = true
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="PlayerRigidBody"]
+shape = SubResource("CircleShape2D_khiof")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="PlayerRigidBody"]
+sprite_frames = SubResource("SpriteFrames_s1jq7")
+animation = &"idle"
