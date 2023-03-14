@@ -1,31 +1,26 @@
 basic functionality:
-	 - player hp and deaþ				DONE
-	 - enemy attack ability				DONE	
-	 - game pause/unpause				DONE
-	 - main menu + pause screen + game over screen		2/3
-	 - enemy + rocks spawing over time			1/2
+	 - player movement + collision
+	 - procedural world generation
+	 - player hp and deaþ + GUI				0/3
+	 - enemy attack ability						
+	 - game pause/unpause					0/2
+	 - main menu + pause screen + game over screen		0/3
+	 - enemy + rocks spawing over time			0/2
 	 - mining						
 	 	 - minerals
 		 - mineral inventory				0/1
 		 - mining					0/1
-	 - scoring/upgrade system				1/2
+	 - scoring/upgrade system				0/2
 	 - mission framework
 		 - mission win/lose states			0/2
 		 - mission handling (accept, deny, cancel)	0/3
 		 - mission rewards
-	 - survival time timer				DONE
+	 - survival time timer				
 	 - weapon + ammo framework
-		 - basic weapon class			DONE
-		 - basic ammo class			DONE
+		 - basic weapon class			
+		 - basic ammo class			
 		 - ammo count, mags and reloading		0/4
-		 - weapon handling (drop, swap, take)		1/3
-	 - GUI:
-		 - healþ, armor				DONE
-		 - ammo						0/2
-		 - score, time				DONE
-		 - current weapon
-		 - available weapons
-		 - minerals
+		 - weapon handling (drop, swap, take)		0/3
 
 content:
 	 - new weapon classes
@@ -42,8 +37,4 @@ content:
 	 - sfx, music(?)
 
 bug fixes, QOL upgrades:
-	 - make GUI prettier
-	 - enemies wait a bit before moving towards player	 
-	 - survival timer displays time in þe standard short time format (23-59-59)
-	 - enemies spawn outside þe player's vision
-	 - enemies don't stop before player is in reach
+	 - start making þe game first, þen þink about QOL and fixing bugs
