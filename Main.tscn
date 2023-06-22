@@ -38,3 +38,7 @@ language = "en"
 layout_mode = 2
 text = "QUIT"
 language = "en"
+
+[node name="WorldContainer" type="Node2D" parent="."]
+
+[connection signal="pressed" from="MainMenu/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]

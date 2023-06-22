@@ -13,3 +13,7 @@ func _process(_delta):
 func QUIT():
 	print("Quitting...")
 	get_tree().quit()
+
+
+func _on_quit_button_pressed():
+	QUIT()
