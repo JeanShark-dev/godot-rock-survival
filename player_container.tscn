@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfb7jvlg72vho"]
+[gd_scene load_steps=4 format=3 uid="uid://cfb7jvlg72vho"]
+
+[ext_resource type="Script" path="res://assets/scripts/PlayerMovement.gd" id="1_m3egy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_khiof"]
 
@@ -12,11 +14,13 @@ animations = [{
 
 [node name="PlayerContainer" type="Node2D"]
 
-[node name="PlayerRigidBody" type="RigidBody2D" parent="."]
-mass = 60.0
-contact_monitor = true
-can_sleep = false
-lock_rotation = true
+[node name="PlayerRigidBody" type="CharacterBody2D" parent="."]
+motion_mode = 1
+script = ExtResource("1_m3egy")
+baseSpeed = 100.0
+
+[node name="Polygon2D" type="Polygon2D" parent="PlayerRigidBody"]
+polygon = PackedVector2Array(0, -10, 4, -9, 7, -7, 9, -4, 10, 0, 9, 4, 7, 7, 4, 9, 0, 10, -4, 9, -7, 7, -9, 5, -10, 2, -10, 0, -10, -2, -9, -5, -7, -7, -5, -8, -2, -10)
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="PlayerRigidBody"]
 shape = SubResource("CircleShape2D_khiof")
@@ -24,3 +28,5 @@ shape = SubResource("CircleShape2D_khiof")
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="PlayerRigidBody"]
 sprite_frames = SubResource("SpriteFrames_s1jq7")
 animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="PlayerRigidBody"]

@@ -1,11 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4lnjk3kh8c2k"]
+[gd_scene load_steps=2 format=3 uid="uid://b4lnjk3kh8c2k"]
 
 [ext_resource type="Script" path="res://assets/scripts/Main.gd" id="1_ja8op"]
-[ext_resource type="Texture2D" uid="uid://c64ha1mxf0hfw" path="res://assets/sprites/icon.svg" id="2_pu64m"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ja8op")
 
-[node name="Context" type="Sprite2D" parent="."]
-position = Vector2(315, 191)
-texture = ExtResource("2_pu64m")
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -270.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+
+[node name="StartButton" type="Button" parent="MainMenu/ButtonContainer"]
+layout_mode = 2
+text = "START"
+language = "en"
+
+[node name="OptionsButton" type="Button" parent="MainMenu/ButtonContainer"]
+layout_mode = 2
+text = "--UNDER CONSTRUCTION--"
+language = "en"
+
+[node name="QuitButton" type="Button" parent="MainMenu/ButtonContainer"]
+layout_mode = 2
+text = "QUIT"
+language = "en"
