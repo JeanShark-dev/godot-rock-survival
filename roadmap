@@ -7,7 +7,7 @@ basic functionality:
 	 - main menu + pause screen + game over screen		0/3
 	 - enemy + rocks spawing over time			0/2
 	 - mining						
-	 	 - minerals
+		 - minerals
 		 - mineral inventory				0/1
 		 - mining					0/1
 	 - scoring/upgrade system				0/2
@@ -23,6 +23,7 @@ content:
 		 - revolver (single-, double-action)		0/2
 		 - pump-action
 		 - bolt-action
+		 - self-loading (semi-auto)
 		 - automatic
 	 - multiple player classes
 	 - mission types
