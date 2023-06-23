@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgeg7h7dhqu2e"]
+
+[ext_resource type="Texture2D" uid="uid://cn1k5487l23u6" path="res://assets/sprites/weapons/flintlock-pistol.svg" id="1_pht15"]
+[ext_resource type="Script" path="res://assets/scripts/flintlock_pistol.gd" id="1_vc4sx"]
+[ext_resource type="AudioStream" uid="uid://ds54d3mgyaic7" path="res://assets/sfx/chamber1.wav" id="3_47p2s"]
+[ext_resource type="AudioStream" uid="uid://ciia0tvsrgafi" path="res://assets/sfx/gunshot_2.wav" id="4_00kr6"]
+[ext_resource type="AudioStream" uid="uid://cwfks61eni8rg" path="res://assets/sfx/cock1.wav" id="4_uj5hv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aybto"]
+radius = 20.0998
+
+[node name="Flintlock Pistol" type="Node2D"]
+script = ExtResource("1_vc4sx")
+spread = 25.0
+barrelLength = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_aybto")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_pht15")
+
+[node name="ChamberSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_47p2s")
+
+[node name="CockSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_uj5hv")
+
+[node name="GunshotSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_00kr6")
+
+[node name="ChamberTimer" type="Timer" parent="."]
+
+[node name="CockTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ChamberTimer" to="." method="_on_chamber_timer_timeout"]
+[connection signal="timeout" from="CockTimer" to="." method="_on_cock_timer_timeout"]

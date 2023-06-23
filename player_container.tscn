@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfb7jvlg72vho"]
+[gd_scene load_steps=6 format=3 uid="uid://cfb7jvlg72vho"]
 
 [ext_resource type="Script" path="res://assets/scripts/PlayerMovement.gd" id="1_m3egy"]
+[ext_resource type="Script" path="res://assets/scripts/WeaponsContainer.gd" id="2_kxgat"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_khiof"]
 
@@ -11,6 +12,9 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trq2l"]
+radius = 25.02
 
 [node name="PlayerContainer" type="Node2D"]
 
@@ -30,3 +34,11 @@ sprite_frames = SubResource("SpriteFrames_s1jq7")
 animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="PlayerRigidBody"]
+zoom = Vector2(2, 2)
+
+[node name="WeaponsContainer" type="Area2D" parent="PlayerRigidBody"]
+monitorable = false
+script = ExtResource("2_kxgat")
+
+[node name="PickupRadius" type="CollisionShape2D" parent="PlayerRigidBody/WeaponsContainer"]
+shape = SubResource("CircleShape2D_trq2l")

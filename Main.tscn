@@ -41,4 +41,5 @@ language = "en"
 
 [node name="WorldContainer" type="Node2D" parent="."]
 
+[connection signal="pressed" from="MainMenu/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
