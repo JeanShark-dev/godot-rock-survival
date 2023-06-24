@@ -1,12 +1,28 @@
 extends Area2D
 
 
-var flintlockPistol = preload("res://flintlock_pistol.tscn").instantiate()
-func _ready():
-	pass # Replace with function body.
+var pickupCandidate
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
+
+
+func _on_area_entered(area):
+	print("area found")
+	if area.has_method("toolTipShow"):
+		print("area is pickuppable")
+		candidateHide()
+		pickupCandidate = area
+		candidateShow()
+
+func candidateShow():
+	print("candidate show")
+	if pickupCandidate.has_method("toolTipShow"):
+		pickupCandidate.toolTipShow()
+
+func candidateHide():
+	print("candidate hide")
+	if pickupCandidate.has_method("toolTipHide"):
+		pickupCandidate.toolTipHide()

@@ -37,6 +37,8 @@ animation = &"idle"
 zoom = Vector2(2, 2)
 
 [node name="WeaponsContainer" type="Area2D" parent="PlayerRigidBody"]
+collision_layer = 4
+collision_mask = 4
 monitorable = false
 script = ExtResource("2_kxgat")
 

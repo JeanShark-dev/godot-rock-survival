@@ -24,9 +24,9 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:lockguides="true"
-     inkscape:zoom="5.6568543"
-     inkscape:cx="62.137008"
-     inkscape:cy="68.235804"
+     inkscape:zoom="11.313709"
+     inkscape:cx="79.063376"
+     inkscape:cy="35.974057"
      inkscape:window-width="1920"
      inkscape:window-height="1011"
      inkscape:window-x="0"
@@ -60,24 +60,24 @@
      transform="translate(8.2498518,9.6205275)">
     <g
        id="g1633"
-       style="fill:#786721"
+       style="fill:#241c1c"
        transform="matrix(14.581471,0,0,15.499124,-83.827549,-43.783875)">
       <g
          id="g1019"
-         style="fill:#786721">
+         style="fill:#241c1c">
         <g
            id="g441"
            transform="rotate(11.518726,5.6697672,2.95421)"
-           style="fill:#786721">
+           style="fill:#241c1c">
           <ellipse
-             style="fill:#786721;stroke-width:0.264583"
+             style="fill:#241c1c;stroke-width:0.264583"
              id="path67"
              cx="5.5788417"
              cy="3.1152883"
              rx="0.29645535"
              ry="0.30485386" />
           <rect
-             style="fill:#786721;stroke-width:0.341254"
+             style="fill:#241c1c;stroke-width:0.341254"
              id="rect93"
              width="0.56032044"
              height="0.75265223"
@@ -89,7 +89,7 @@
              inkscape:transform-center-y="-0.081446339" />
         </g>
         <rect
-           style="fill:#786721;stroke-width:0.279852"
+           style="fill:#241c1c;stroke-width:0.279852"
            id="rect567"
            width="1.8639936"
            height="0.33739942"
@@ -97,7 +97,7 @@
            y="2.5000744"
            ry="0.10647253" />
         <rect
-           style="fill:#786721;stroke-width:0.237712"
+           style="fill:#241c1c;stroke-width:0.237712"
            id="rect797"
            width="0.32648301"
            height="0.32946742"
@@ -106,7 +106,7 @@
            ry="0.096826531"
            transform="matrix(0.5560516,-0.83114777,0.94026839,0.34043407,0,0)" />
         <rect
-           style="fill:#786721;stroke-width:0.264583"
+           style="fill:#241c1c;stroke-width:0.264583"
            id="rect931"
            width="0.19082427"
            height="0.11891948"
@@ -115,7 +115,7 @@
            ry="0.059459738" />
       </g>
       <rect
-         style="fill:#786721;stroke-width:0.287951"
+         style="fill:#241c1c;stroke-width:0.287951"
          id="rect1543"
          width="0.65198064"
          height="0.21060409"
@@ -198,5 +198,60 @@
            inkscape:transform-center-y="-0.068212891" />
       </g>
     </g>
+    <circle
+       id="path2401"
+       style="fill:#000000;stroke:#808080;stroke-width:0.264583"
+       cx="-6.3789649"
+       cy="-2.6514747"
+       r="0.0031150035" />
+    <circle
+       id="path2403"
+       style="fill:#000000;stroke:#808080;stroke-width:0.264583"
+       cx="-6.3789649"
+       cy="-2.6514747"
+       r="0.0031150035" />
+    <rect
+       style="fill:#00ff00;stroke:none;stroke-width:0.264583"
+       id="rect7244"
+       width="10.219718"
+       height="0.93544334"
+       x="15.440251"
+       y="-3.7506206"
+       ry="0.10530205" />
+    <rect
+       style="fill:#00ff00;stroke:none;stroke-width:0.254712"
+       id="rect7348"
+       width="9.4713631"
+       height="0.93544334"
+       x="15.393479"
+       y="-1.8797339"
+       ry="0.10530205" />
+    <rect
+       style="fill:#00ff00;stroke:none;stroke-width:0.229921"
+       id="rect7350"
+       width="7.7174067"
+       height="0.93544334"
+       x="-4.3186498"
+       y="-0.71961969"
+       ry="0.10530205"
+       transform="rotate(43.726083)" />
+    <rect
+       style="fill:#00ff00;stroke:none;stroke-width:0.229921"
+       id="rect7352"
+       width="7.7174067"
+       height="0.93544334"
+       x="-4.2764325"
+       y="1.1563871"
+       ry="0.10530205"
+       transform="rotate(42.034294)" />
+    <rect
+       style="fill:#00ff00;stroke:none;stroke-width:0.229921"
+       id="rect7354"
+       width="7.7174067"
+       height="0.93544334"
+       x="-4.5688772"
+       y="3.5661101"
+       ry="0.10530205"
+       transform="rotate(37.825888)" />
   </g>
 </svg>
