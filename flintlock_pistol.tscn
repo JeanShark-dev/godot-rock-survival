@@ -20,8 +20,11 @@ stream = ExtResource("4_uj5hv")
 stream = ExtResource("4_00kr6")
 
 [node name="ChamberTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="CockTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
 
 [connection signal="timeout" from="ChamberTimer" to="." method="_on_chamber_timer_timeout"]
 [connection signal="timeout" from="CockTimer" to="." method="_on_cock_timer_timeout"]

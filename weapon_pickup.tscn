@@ -1,14 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://u1ocuprm86pk"]
 
-[ext_resource type="Script" path="res://WeaponPickup.gd" id="1_rt7oc"]
+[ext_resource type="Script" path="res://assets/scripts/WeaponPickup.gd" id="1_nr5d2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q0c36"]
 
 [node name="WeaponPickup" type="Area2D"]
-collision_layer = 4
-collision_mask = 4
-monitoring = false
-script = ExtResource("1_rt7oc")
+script = ExtResource("1_nr5d2")
 spriteSize = 0.1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

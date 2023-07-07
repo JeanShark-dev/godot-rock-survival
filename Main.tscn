@@ -45,5 +45,11 @@ language = "en"
 [node name="WeaponPickup" parent="." instance=ExtResource("2_hxktq")]
 position = Vector2(151, 104)
 
+[node name="WeaponPickup2" parent="." instance=ExtResource("2_hxktq")]
+position = Vector2(107, 88)
+
+[node name="WeaponPickup3" parent="." instance=ExtResource("2_hxktq")]
+position = Vector2(73, 165)
+
 [connection signal="pressed" from="MainMenu/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]

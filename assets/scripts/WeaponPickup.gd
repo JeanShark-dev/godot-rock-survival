@@ -8,10 +8,12 @@ extends Area2D
 func _ready():
 	$Sprite2D.texture = weaponSprite
 	$Sprite2D.apply_scale(Vector2(spriteSize, spriteSize))
+	self.add_to_group("weaponPickup", true)
 
 func toolTipShow():
 	$Tooltip.show()
 
 func toolTipHide():
 	$Tooltip.hide()
+
 

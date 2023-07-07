@@ -5,24 +5,33 @@ var pickupCandidate
 
 
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("gp_use")  && pickupCandidate != null:
+		pickWeapon(pickupCandidate)
 
 
+func pickWeapon(weapon):
+	if weapon.is_in_group("weaponPickup") && $WeaponSlot.get_child_count() ==0:
+		$WeaponSlot.add_child(weapon.weapon)
+		weapon.queue_free()
 
 func _on_area_entered(area):
-	print("area found")
-	if area.has_method("toolTipShow"):
-		print("area is pickuppable")
+	if pickupCandidate == null:
+		pickupCandidate = area
+	if area.is_in_group("weaponPickup"):
 		candidateHide()
 		pickupCandidate = area
 		candidateShow()
 
 func candidateShow():
-	print("candidate show")
-	if pickupCandidate.has_method("toolTipShow"):
+	if pickupCandidate.is_in_group("weaponPickup") && pickupCandidate != null:
 		pickupCandidate.toolTipShow()
 
 func candidateHide():
-	print("candidate hide")
-	if pickupCandidate.has_method("toolTipHide"):
+	if pickupCandidate.is_in_group("weaponPickup") && pickupCandidate != null:
 		pickupCandidate.toolTipHide()
+
+
+func _on_area_exited(area):
+	if area.is_in_group("weaponPickup") && pickupCandidate != null:
+		pickupCandidate.toolTipHide()
+		pickupCandidate = null
