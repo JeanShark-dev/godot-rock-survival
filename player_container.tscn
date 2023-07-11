@@ -32,6 +32,7 @@ radius = 24.1868
 [node name="PlayerContainer" type="Node2D"]
 
 [node name="PlayerRigidBody" type="CharacterBody2D" parent="."]
+process_mode = 1
 motion_mode = 1
 script = ExtResource("1_m3egy")
 baseSpeed = 100.0
@@ -62,6 +63,7 @@ shape = SubResource("CircleShape2D_j2aqs")
 [node name="WeaponSlot" type="Node2D" parent="PlayerRigidBody/WeaponContainer"]
 
 [node name="GUI" type="Control" parent="PlayerRigidBody"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
