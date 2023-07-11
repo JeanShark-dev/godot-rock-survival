@@ -54,10 +54,6 @@ mouse0={
 ]
 }
 
-[layer_names]
-
-2d_physics/layer_32="PickableUp"
-
 [physics]
 
 2d/default_gravity=981.0
