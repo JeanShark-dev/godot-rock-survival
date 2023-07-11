@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfb7jvlg72vho"]
+
+[ext_resource type="Script" path="res://assets/scripts/PlayerMovement.gd" id="1_m3egy"]
+[ext_resource type="Script" path="res://assets/scripts/WeaponsContainer.gd" id="2_kxgat"]
+[ext_resource type="Script" path="res://GUI.gd" id="3_ny2t6"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vxu8l"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 9.08
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_khiof"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s1jq7"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j2aqs"]
+radius = 24.1868
+
+[node name="PlayerContainer" type="Node2D"]
+
+[node name="PlayerRigidBody" type="CharacterBody2D" parent="."]
+process_mode = 1
+motion_mode = 1
+script = ExtResource("1_m3egy")
+baseSpeed = 100.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="PlayerRigidBody"]
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_vxu8l")
+
+[node name="Polygon2D" type="Polygon2D" parent="PlayerRigidBody"]
+polygon = PackedVector2Array(0, -10, 4, -9, 7, -7, 9, -4, 10, 0, 9, 4, 7, 7, 4, 9, 0, 10, -4, 9, -7, 7, -9, 5, -10, 2, -10, 0, -10, -2, -9, -5, -7, -7, -5, -8, -2, -10)
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="PlayerRigidBody"]
+shape = SubResource("CircleShape2D_khiof")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="PlayerRigidBody"]
+sprite_frames = SubResource("SpriteFrames_s1jq7")
+animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="PlayerRigidBody"]
+zoom = Vector2(2, 2)
+
+[node name="WeaponContainer" type="Area2D" parent="PlayerRigidBody"]
+script = ExtResource("2_kxgat")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerRigidBody/WeaponContainer"]
+shape = SubResource("CircleShape2D_j2aqs")
+
+[node name="WeaponSlot" type="Node2D" parent="PlayerRigidBody/WeaponContainer"]
+
+[node name="GUI" type="Control" parent="PlayerRigidBody"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_ny2t6")
+
+[node name="PauseMenu" type="VBoxContainer" parent="PlayerRigidBody/GUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="PlayerRigidBody/GUI/PauseMenu"]
+layout_mode = 2
+text = "RESUME"
+
+[node name="OptionsButton" type="Button" parent="PlayerRigidBody/GUI/PauseMenu"]
+layout_mode = 2
+text = "<under construction>
+"
+
+[node name="QuitButton" type="Button" parent="PlayerRigidBody/GUI/PauseMenu"]
+layout_mode = 2
+text = "QUIT"
+
+[connection signal="area_entered" from="PlayerRigidBody/WeaponContainer" to="PlayerRigidBody/WeaponContainer" method="_on_area_entered"]
+[connection signal="area_exited" from="PlayerRigidBody/WeaponContainer" to="PlayerRigidBody/WeaponContainer" method="_on_area_exited"]
+[connection signal="pressed" from="PlayerRigidBody/GUI/PauseMenu/ResumeButton" to="PlayerRigidBody/GUI" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PlayerRigidBody/GUI/PauseMenu/QuitButton" to="PlayerRigidBody/GUI" method="_on_quit_button_pressed"]

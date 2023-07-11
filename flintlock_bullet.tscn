@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://baa6nu5vjpvn4"]
+
+[ext_resource type="Script" path="res://assets/scripts/bullet.gd" id="1_2lgfh"]
+[ext_resource type="Texture2D" uid="uid://c7hr6g3drd5ey" path="res://assets/sprites/weapons/projectiles/flintlock_bullet.svg" id="1_aoxgc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wn3hj"]
+radius = 1.0
+
+[node name="Flintlock Bullet" type="RigidBody2D"]
+mass = 0.1
+linear_damp = 1.0
+script = ExtResource("1_2lgfh")
+bulletLifetime = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_aoxgc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wn3hj")
+
+[node name="LifeTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

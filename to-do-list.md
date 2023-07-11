@@ -1,0 +1,15 @@
+Functionality
+- make separate weapon pickup && weapon handling scenes for flintlock pistol
+- make weaponContainer script capable of handling up weapons 
+	- if player is in range of weaponPickup scene, prompt to pick it up
+	- when picked up, add weaponProper as child of weaponContainer and remove weaponPickup
+	- player can drop carried weapon
+	- player can only have one weapon at a time (for now)
+	- make sure weaponContainer has not a weaponProper already before prompt
+- flintlock pistol functionality
+	- if no round is chambered: 'Fire' chambers a round
+	- if hammer is not cocked: 'Fire' cocks þe hammer
+	- if a round is chambered and þe hammer is cocked: 'Fire' fires þe gun
+	- upon firing, a flintlock bullet is created towards þe cursor at player radius + barrel lengþ away from þe player's centre
+	- flintlock pistol has a low muzzle velocity and high spread due to being smooþbore
+	- flintlock pistol has high damage and high knockback
