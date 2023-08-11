@@ -72,30 +72,67 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_ny2t6")
 
-[node name="PauseMenu" type="VBoxContainer" parent="PlayerRigidBody/GUI"]
+[node name="PauseMenu" type="Control" parent="PlayerRigidBody/GUI"]
 visible = false
 layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ResumeButton" type="Button" parent="PlayerRigidBody/GUI/PauseMenu"]
+[node name="ColorRect" type="ColorRect" parent="PlayerRigidBody/GUI/PauseMenu"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -493.0
+offset_top = -269.0
+offset_right = 495.0
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+color = Color(0.670588, 0.341176, 0.372549, 0.368627)
+
+[node name="PauseMenu" type="VBoxContainer" parent="PlayerRigidBody/GUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -50.5
+offset_right = 87.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="PlayerRigidBody/GUI/PauseMenu/PauseMenu"]
 layout_mode = 2
 text = "RESUME"
 
-[node name="OptionsButton" type="Button" parent="PlayerRigidBody/GUI/PauseMenu"]
+[node name="OptionsButton" type="Button" parent="PlayerRigidBody/GUI/PauseMenu/PauseMenu"]
 layout_mode = 2
 text = "<under construction>
 "
 
-[node name="QuitButton" type="Button" parent="PlayerRigidBody/GUI/PauseMenu"]
+[node name="QuitButton" type="Button" parent="PlayerRigidBody/GUI/PauseMenu/PauseMenu"]
 layout_mode = 2
 text = "QUIT"
 
+[node name="HUD" type="Control" parent="PlayerRigidBody/GUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="area_entered" from="PlayerRigidBody/WeaponContainer" to="PlayerRigidBody/WeaponContainer" method="_on_area_entered"]
 [connection signal="area_exited" from="PlayerRigidBody/WeaponContainer" to="PlayerRigidBody/WeaponContainer" method="_on_area_exited"]
-[connection signal="pressed" from="PlayerRigidBody/GUI/PauseMenu/ResumeButton" to="PlayerRigidBody/GUI" method="_on_resume_button_pressed"]
-[connection signal="pressed" from="PlayerRigidBody/GUI/PauseMenu/QuitButton" to="PlayerRigidBody/GUI" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PlayerRigidBody/GUI/PauseMenu/PauseMenu/ResumeButton" to="PlayerRigidBody/GUI" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PlayerRigidBody/GUI/PauseMenu/PauseMenu/QuitButton" to="PlayerRigidBody/GUI" method="_on_quit_button_pressed"]

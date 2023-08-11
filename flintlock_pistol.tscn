@@ -8,7 +8,8 @@
 [node name="Flintlock Pistol" type="Node2D"]
 script = ExtResource("1_vc4sx")
 spread = 25.0
-barrelLength = 1.0
+barrelLength = 10.0
+muzzleVelocity = 800.0
 
 [node name="ChamberSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_47p2s")

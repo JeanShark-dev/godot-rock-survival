@@ -8,6 +8,7 @@ var AmmoType = "Flintlock Bullet"
 var ammo = preload("res://flintlock_bullet.tscn")
 @export var spread = 0.0
 @export var barrelLength = 0.0
+@export var muzzleVelocity = 0.0
 
 var isChambered = false
 var isCocked = false
@@ -46,7 +47,7 @@ func Shoot():
 	ammoManager.add_child(bullet)
 	bullet.position = player.global_position + get_local_mouse_position().normalized()*barrelLength
 	#bullet.look_at(get_global_mouse_position())
-	bullet.apply_central_impulse(get_local_mouse_position().normalized()*1000)
+	bullet.apply_central_impulse((get_local_mouse_position()+Vector2(randf_range(-spread, spread), randf_range(-spread, spread))).normalized()*muzzleVelocity)
 	
 	$GunshotSound.play()
 
