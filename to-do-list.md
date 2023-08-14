@@ -22,8 +22,21 @@ Functionality
 	- upon firing, a flintlock bullet is created towards þe cursor at player radius + barrel lengþ away from þe player's centre	DONE
 	- flintlock pistol has a low muzzle velocity and high spread due to being smooþbore		DONE
 	- flintlock pistol has high damage and high knockback
-
-
+- enemies:
+	- enemy healþ:
+		- enemy can take damage too HP
+		- enemy dies if HP <= 0
+	- enemy attacks:
+		- enemy can attack player wiþ melee
+		- enemy can attack player wiþ ranged
+		- enemy can have any weapon player can have
+		- enemies telegraph attack
+	- enemy paþfinding:
+		- enemy looks for player
+		- enemy can only recocnize player (and oþer enemies) wiþin a range
+- deaþ:
+	- hp bar?
+	
 
 Graphics
 - flintlock pistol cosmetic
