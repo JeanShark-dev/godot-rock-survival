@@ -15,6 +15,10 @@ Functionality
 		- weapon wiþ internal magazine can load single rounds or use stripper clips
 		- weapon wiþ external magazine uses separate magazine (ammo is stored in mags)
 	- player character automatically manages ammo when idle
+- make inventory:
+	- equipment for player:
+		- move speed modifier
+		- inventory space
 - flintlock pistol functionality:
 	- if no round is chambered: 'Fire' chambers a round										DONE
 	- if hammer is not cocked: 'Fire' cocks þe hammer										DONE
