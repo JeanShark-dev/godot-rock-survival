@@ -1,10 +1,10 @@
 basic functionality:
-	 - player movement + collision
+	 - player movement + collision				PROCESS
 	 - procedural world generation
 	 - player hp and deaþ + GUI				0/3
 	 - enemy attack ability						
-	 - game pause/unpause					0/2
-	 - main menu + pause screen + game over screen		0/3
+	 - game pause/unpause					2/2	DONE
+	 - main menu + pause screen + game over screen		2/3	PROCESS
 	 - enemy + rocks spawing over time			0/2
 	 - mining						
 		 - minerals
@@ -12,9 +12,9 @@ basic functionality:
 		 - mining					0/1
 	 - scoring/upgrade system				0/2
 	 - survival time timer				
-	 - weapon + ammo framework
-		 - basic weapon class			
-		 - basic ammo class			
+	 - weapon + ammo framework				PROCESS
+		 - basic weapon class				PROCESS
+		 - basic ammo class				PROCESS
 		 - ammo count, mags and reloading		0/4
 		 - weapon handling (drop, swap, take)		0/3
 
@@ -31,7 +31,7 @@ content:
 	 - DOT + area damage
 	 - element/status effect system
 	 - improved graphics
-	 - sfx, music(?)
+	 - sfx, music(?)					PROCESS
 
 bug fixes, QOL upgrades:
 	 - start making þe game first, þen þink about QOL and fixing bugs
