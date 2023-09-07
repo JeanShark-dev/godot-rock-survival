@@ -8,6 +8,10 @@ basic functionality:
 	 - enemy + rocks spawing over time			0/2
 	 - mining						
 		 - minerals
+			- metals (iron, copper, lead, gold)
+			- silicates (asbestos, sand)
+			- salts (NaCl, salmiak)
+			- roots (potato, wood, onion)
 		 - mineral inventory				0/1
 		 - mining					0/1
 	 - scoring/upgrade system				0/2
