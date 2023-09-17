@@ -10,7 +10,7 @@ script = ExtResource("1_vc4sx")
 type = "Pistol"
 AmmoType = "Flintlock"
 spread = 25.0
-barrelLength = 10.0
+barrelLength = 15.0
 muzzleVelocity = 800.0
 
 [node name="ChamberSound" type="AudioStreamPlayer2D" parent="."]

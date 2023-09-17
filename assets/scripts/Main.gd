@@ -2,6 +2,8 @@ extends Node
 
 
 var player = preload("res://player_container.tscn")
+
+
 func _ready():
 	pass # Replace with function body.
 

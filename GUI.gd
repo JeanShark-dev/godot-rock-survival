@@ -7,7 +7,6 @@ func _ready():
 	mainNode = get_parent().get_parent().get_parent().get_parent()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		$PauseMenu.visible = !$PauseMenu.visible

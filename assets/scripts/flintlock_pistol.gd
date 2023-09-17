@@ -6,6 +6,7 @@ extends Node2D
 @export var type = "Flintlock"
 @export var AmmoType = "Flintlock Bullet"
 @export var ammo = preload("res://flintlock_bullet.tscn")
+@export var sprite = preload("res://assets/sprites/weapons/flintlock-pistol.svg")
 @export var spread = 0.0
 @export var barrelLength = 0.0
 @export var muzzleVelocity = 0.0
@@ -13,6 +14,7 @@ extends Node2D
 var isChambered = false
 var isCocked = false
 var isReady = true
+
 
 func _process(_delta):
 	if Input.is_action_just_pressed("mouse0") && isReady:
@@ -25,6 +27,7 @@ func _process(_delta):
 		if !isCocked:
 			Cock()
 			return
+
 
 func Chamber():
 	$ChamberSound.play()
@@ -50,6 +53,7 @@ func Shoot():
 	bullet.apply_central_impulse((get_local_mouse_position()+Vector2(randf_range(-spread, spread), randf_range(-spread, spread))).normalized()*muzzleVelocity)
 	
 	$GunshotSound.play()
+
 
 func _on_chamber_timer_timeout():
 	isChambered = true

@@ -72,6 +72,41 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_ny2t6")
 
+[node name="HUD" type="Control" parent="PlayerRigidBody/GUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WeaponHUD" type="HBoxContainer" parent="PlayerRigidBody/GUI/HUD"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -474.0
+offset_top = 158.0
+offset_right = -163.0
+offset_bottom = 256.0
+grow_vertical = 0
+
+[node name="WeaponSprite" type="TextureRect" parent="PlayerRigidBody/GUI/HUD/WeaponHUD"]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="VSplitContainer" type="VBoxContainer" parent="PlayerRigidBody/GUI/HUD/WeaponHUD"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="WeaponName" type="Label" parent="PlayerRigidBody/GUI/HUD/WeaponHUD/VSplitContainer"]
+layout_mode = 2
+
+[node name="WeaponStats" type="Label" parent="PlayerRigidBody/GUI/HUD/WeaponHUD/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
 [node name="PauseMenu" type="Control" parent="PlayerRigidBody/GUI"]
 visible = false
 layout_mode = 1
@@ -123,14 +158,6 @@ text = "<under construction>
 [node name="QuitButton" type="Button" parent="PlayerRigidBody/GUI/PauseMenu/PauseMenu"]
 layout_mode = 2
 text = "QUIT"
-
-[node name="HUD" type="Control" parent="PlayerRigidBody/GUI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [connection signal="area_entered" from="PlayerRigidBody/WeaponContainer" to="PlayerRigidBody/WeaponContainer" method="_on_area_entered"]
 [connection signal="area_exited" from="PlayerRigidBody/WeaponContainer" to="PlayerRigidBody/WeaponContainer" method="_on_area_exited"]

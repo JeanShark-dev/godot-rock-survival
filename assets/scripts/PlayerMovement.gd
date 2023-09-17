@@ -2,15 +2,14 @@ extends CharacterBody2D
 
 
 var direction = Vector2()
+
 @export var baseSpeed = 0.0
-func _ready():
-	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	take_input()
 	move_and_collide(velocity*delta*baseSpeed)
+
 
 func take_input():
 	direction = Vector2()
