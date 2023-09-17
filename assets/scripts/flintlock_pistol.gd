@@ -3,9 +3,9 @@ extends Node2D
 
 @onready var ammoManager = get_parent().get_parent().get_parent().get_parent().get_parent()
 @onready var player = get_parent().get_parent()
-var type = "Flintlock"
-var AmmoType = "Flintlock Bullet"
-var ammo = preload("res://flintlock_bullet.tscn")
+@export var type = "Flintlock"
+@export var AmmoType = "Flintlock Bullet"
+@export var ammo = preload("res://flintlock_bullet.tscn")
 @export var spread = 0.0
 @export var barrelLength = 0.0
 @export var muzzleVelocity = 0.0

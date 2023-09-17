@@ -7,6 +7,8 @@
 
 [node name="Flintlock Pistol" type="Node2D"]
 script = ExtResource("1_vc4sx")
+type = "Pistol"
+AmmoType = "Flintlock"
 spread = 25.0
 barrelLength = 10.0
 muzzleVelocity = 800.0
