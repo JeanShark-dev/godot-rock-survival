@@ -11,6 +11,8 @@ extends Node2D
 @export var barrelLength = 0.0
 @export var muzzleVelocity = 0.0
 
+var weapon = "res://flintlock_pistol.tscn"
+
 var isChambered = false
 var isCocked = false
 var isReady = true
