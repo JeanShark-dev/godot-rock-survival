@@ -3,10 +3,10 @@ Functionality
 - make weaponContainer script capable of handling weapons:
 	- if player is in range of weaponPickup scene, prompt to pick it up						DONE
 	- when picked up, add weaponProper as child of weaponContainer and remove weaponPickup	DONE
-	- player can drop carried weapon
+	- player can drop carried weapon														DONE
 	- player can only have one weapon at a time (for now)									DONE
 	- make weaponContainer pick-up prompt dependent on carried weapon
-	- display carried weapon
+	- display carried weapon																DONE
 	- make dropped weapon retain properties
 - make ammo manager:
 	- make ammo pick-up scene
