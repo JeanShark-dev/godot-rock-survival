@@ -47,3 +47,8 @@ Graphics
 	- muzzle flash and smoke
 	- better sprite
 	- bullet impact
+
+Bugs
+- 001: dropping weapon stops weapon sfx
+- 002.1: bullet tracer vanishes when bullet goes far enough offscreen
+- 002.2: bullet tracer briefly re-appears when approaching offscreen bullet
