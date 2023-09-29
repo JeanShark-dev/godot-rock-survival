@@ -35,6 +35,7 @@ hue_variation_max = 0.05
 
 [node name="Flintlock Bullet" type="RigidBody2D"]
 mass = 0.1
+continuous_cd = 2
 linear_damp = 1.0
 script = ExtResource("1_2lgfh")
 bulletLifetime = 10.0
@@ -52,5 +53,7 @@ one_shot = true
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 1000
 process_material = SubResource("ParticleProcessMaterial_kk2jh")
+fixed_fps = 60
+trail_enabled = true
 
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
