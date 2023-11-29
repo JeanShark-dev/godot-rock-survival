@@ -51,11 +51,11 @@ func Shoot():
 
 	var bullet = ammo.instantiate()
 	ammoManager.add_child(bullet)
-	var target = get_global_mouse_position()
-	bullet.position = player.position + (barrelLength * target.normalized())
-	bullet.target_position = player.position + effectiveRange * target.normalized()
-	print(bullet.position, ", ", bullet.target_position)
-	
+	bullet.position = player.position + get_local_mouse_position().normalized() * barrelLength
+	bullet.look_at(get_global_mouse_position())
+#	bullet.position += get_local_mouse_position().normalized() * barrelLength
+	bullet.target_position = Vector2(effectiveRange,0)
+#	bullet.get_node("Line2D").add_point(bullet.target_position)
 	
 	$GunshotSound.play()
 
