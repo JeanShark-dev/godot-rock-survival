@@ -11,7 +11,7 @@ type = "Pistol"
 AmmoType = "Flintlock"
 spread = 25.0
 barrelLength = 15.0
-muzzleVelocity = 800.0
+effectiveRange = 400.0
 
 [node name="ChamberSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_47p2s")
@@ -29,5 +29,10 @@ one_shot = true
 wait_time = 0.25
 one_shot = true
 
+[node name="ShotTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="timeout" from="ChamberTimer" to="." method="_on_chamber_timer_timeout"]
 [connection signal="timeout" from="CockTimer" to="." method="_on_cock_timer_timeout"]
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

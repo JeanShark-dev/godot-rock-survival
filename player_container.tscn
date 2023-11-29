@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/scripts/PlayerMovement.gd" id="1_m3egy"]
 [ext_resource type="Script" path="res://assets/scripts/WeaponsContainer.gd" id="2_kxgat"]
-[ext_resource type="Script" path="res://GUI.gd" id="3_ny2t6"]
+[ext_resource type="Script" path="res://assets/scripts/GUI.gd" id="3_qlfn6"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vxu8l"]
 lifetime_randomness = 1.0
@@ -70,7 +70,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_ny2t6")
+script = ExtResource("3_qlfn6")
 
 [node name="HUD" type="Control" parent="PlayerRigidBody/GUI"]
 layout_mode = 1

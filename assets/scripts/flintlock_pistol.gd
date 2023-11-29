@@ -2,14 +2,14 @@ extends Node2D
 
 
 @onready var ammoManager = get_parent().get_parent().get_parent().get_parent().get_parent()
-@onready var player = get_parent().get_parent()
+@onready var player = get_parent().get_parent().get_parent()
 @export var type = "Flintlock"
 @export var AmmoType = "Flintlock Bullet"
 @export var ammo = preload("res://flintlock_bullet.tscn")
 @export var sprite = preload("res://assets/sprites/weapons/flintlock-pistol.svg")
 @export var spread = 0.0
 @export var barrelLength = 0.0
-@export var muzzleVelocity = 0.0
+@export var effectiveRange = 0.0
 
 var weapon = "res://flintlock_pistol.tscn"
 
@@ -44,24 +44,34 @@ func Cock():
 
 
 func Shoot():
+#	print("Shoot!")
 	isChambered = false
 	isCocked = false
+	$ShotTimer.start()
 
-	isReady = true
 	var bullet = ammo.instantiate()
 	ammoManager.add_child(bullet)
-	bullet.position = player.global_position + get_local_mouse_position().normalized()*barrelLength
-	#bullet.look_at(get_global_mouse_position())
-	bullet.apply_central_impulse((get_local_mouse_position()+Vector2(randf_range(-spread, spread), randf_range(-spread, spread))).normalized()*muzzleVelocity)
+	var target = get_global_mouse_position()
+	bullet.position = player.position + (barrelLength * target.normalized())
+	bullet.target_position = player.position + effectiveRange * target.normalized()
+	print(bullet.position, ", ", bullet.target_position)
+	
 	
 	$GunshotSound.play()
 
 
 func _on_chamber_timer_timeout():
+#	print("Loaded.")
 	isChambered = true
 	isReady = true
 
 
 func _on_cock_timer_timeout():
+#	print("Locked.")
 	isCocked = true
+	isReady = true
+
+
+func _on_shot_timer_timeout():
+#	print("Can shoot.")
 	isReady = true

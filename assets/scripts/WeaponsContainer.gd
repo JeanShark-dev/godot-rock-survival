@@ -35,11 +35,11 @@ func pickWeapon(weapon):
 func dropWeapon():
 	var currentWeapon = $WeaponSlot.get_child(0)
 	var droppingWeapon = weaponDrop.instantiate()
-	print(currentWeapon)
-	print(droppingWeapon)
+#	print(currentWeapon)
+#	print(droppingWeapon)
 	droppingWeapon.weaponPath = $WeaponSlot.get_child(0).weapon
 	droppingWeapon.position = global_position
-	print(droppingWeapon.weaponPath)
+#	print(droppingWeapon.weaponPath)
 	worldSpace.add_child(droppingWeapon)
 	currentWeapon.queue_free()
 	hudSprite.texture = null

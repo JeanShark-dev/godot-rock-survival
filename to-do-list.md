@@ -23,9 +23,11 @@ Functionality
 	- DONE: if no round is chambered: 'Fire' chambers a round
 	- DONE: if hammer is not cocked: 'Fire' cocks þe hammer
 	- DONE: if a round is chambered and þe hammer is cocked: 'Fire' fires þe gun
-	- DONE: upon firing, a flintlock bullet is created towards þe cursor at player radius + barrel lengþ away from þe player's centre
-	- DONE: flintlock pistol has a low muzzle velocity and high spread due to being smooþbore
+	- WIP: upon firing, a flintlock bullet is created towards þe cursor at player radius + barrel lengþ away from þe player's centre
+	- WIP: flintlock pistol has a low range and high spread due to being smooþbore
 	- TBD: flintlock pistol has high damage and high knockback
+	- WIP: flintlock pistol bullet is hitscan
+	- TBD: chance for bleed, shattered bone, infection
 - TBD: enemies:
 	- TBD: enemy healþ:
 		- TBD: enemy can take damage to HP

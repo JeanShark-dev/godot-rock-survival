@@ -1,59 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://baa6nu5vjpvn4"]
+[gd_scene load_steps=2 format=3 uid="uid://baa6nu5vjpvn4"]
 
 [ext_resource type="Script" path="res://assets/scripts/bullet.gd" id="1_2lgfh"]
-[ext_resource type="Texture2D" uid="uid://c7hr6g3drd5ey" path="res://assets/sprites/weapons/projectiles/flintlock_bullet.svg" id="1_aoxgc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wn3hj"]
-radius = 1.0
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kk2jh"]
-lifetime_randomness = 1.0
-emission_shape = 1
-emission_sphere_radius = 1.0
-particle_flag_disable_z = true
-spread = 180.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_max = 2.0
-angular_velocity_min = -2.0
-angular_velocity_max = 2.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-linear_accel_min = -2.0
-linear_accel_max = 2.0
-radial_accel_min = -1.0
-radial_accel_max = 1.0
-tangential_accel_min = -1.0
-tangential_accel_max = 1.0
-damping_max = 10.0
-angle_min = -90.0
-angle_max = 90.0
-scale_min = 0.25
-scale_max = 1.25
-color = Color(0.439216, 0.380392, 0.384314, 1)
-hue_variation_min = -0.05
-hue_variation_max = 0.05
-
-[node name="Flintlock Bullet" type="RigidBody2D"]
-mass = 0.1
-continuous_cd = 2
-linear_damp = 1.0
+[node name="Flintlock Bullet" type="RayCast2D"]
+collide_with_areas = true
 script = ExtResource("1_2lgfh")
-bulletLifetime = 10.0
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_aoxgc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_wn3hj")
+bulletLifetime = 0.1
 
 [node name="LifeTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 1000
-process_material = SubResource("ParticleProcessMaterial_kk2jh")
-fixed_fps = 60
-trail_enabled = true
+[node name="MuzzleFlashTemp" type="Polygon2D" parent="."]
+color = Color(0.898039, 0.752941, 0.607843, 1)
+polygon = PackedVector2Array(0, 1, 2, 0, 0, -2, -2, 0)
 
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
