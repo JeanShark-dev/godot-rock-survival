@@ -28,6 +28,7 @@ Functionality
 	- TBD: flintlock pistol has high damage and high knockback
 	- WIP: flintlock pistol bullet is hitscan
 	- TBD: chance for bleed, shattered bone, infection
+	- WIP: flintlock pistol shooting is consistent
 - TBD: enemies:
 	- TBD: enemy healþ:
 		- TBD: enemy can take damage to HP

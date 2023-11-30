@@ -52,6 +52,7 @@ func Shoot():
 	var bullet = ammo.instantiate()
 	ammoManager.add_child(bullet)
 	bullet.position = player.position + get_local_mouse_position().normalized() * barrelLength
+	print("Local mouse: ", get_local_mouse_position(), " Global mouse: ", get_global_mouse_position())
 	bullet.look_at(get_global_mouse_position())
 #	bullet.position += get_local_mouse_position().normalized() * barrelLength
 	bullet.target_position = Vector2(effectiveRange,0)

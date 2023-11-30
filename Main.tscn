@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4lnjk3kh8c2k"]
+[gd_scene load_steps=3 format=3 uid="uid://b4lnjk3kh8c2k"]
 
 [ext_resource type="Script" path="res://assets/scripts/Main.gd" id="1_ja8op"]
 [ext_resource type="PackedScene" uid="uid://u1ocuprm86pk" path="res://weapon_pickup.tscn" id="2_hxktq"]
-[ext_resource type="PackedScene" uid="uid://dqw1b6b6hj8fj" path="res://collision_dummy.tscn" id="3_iahnp"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ja8op")
@@ -45,15 +44,6 @@ language = "en"
 
 [node name="WeaponPickup" parent="." instance=ExtResource("2_hxktq")]
 position = Vector2(151, 104)
-
-[node name="WeaponPickup2" parent="." instance=ExtResource("2_hxktq")]
-position = Vector2(107, 88)
-
-[node name="WeaponPickup3" parent="." instance=ExtResource("2_hxktq")]
-position = Vector2(73, 165)
-
-[node name="Node2D" parent="." instance=ExtResource("3_iahnp")]
-position = Vector2(269, 221)
 
 [connection signal="pressed" from="MainMenu/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
