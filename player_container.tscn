@@ -107,6 +107,12 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 8
 
+[node name="TechMenu" type="Control" parent="PlayerRigidBody/GUI"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="PauseMenu" type="Control" parent="PlayerRigidBody/GUI"]
 visible = false
 layout_mode = 1

@@ -11,6 +11,8 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		$PauseMenu.visible = !$PauseMenu.visible
 		get_tree().paused = !get_tree().paused
+	if Input.is_action_just_pressed("ui_tech"):
+		$TechMenu.visible = !$TechMenu.visible
 
 
 func _on_resume_button_pressed():

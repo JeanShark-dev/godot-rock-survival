@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4lnjk3kh8c2k"]
+[gd_scene load_steps=2 format=3 uid="uid://b4lnjk3kh8c2k"]
 
 [ext_resource type="Script" path="res://assets/scripts/Main.gd" id="1_ja8op"]
-[ext_resource type="PackedScene" uid="uid://u1ocuprm86pk" path="res://weapon_pickup.tscn" id="2_hxktq"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ja8op")
@@ -41,9 +40,6 @@ text = "QUIT"
 language = "en"
 
 [node name="WorldContainer" type="Node2D" parent="."]
-
-[node name="WeaponPickup" parent="." instance=ExtResource("2_hxktq")]
-position = Vector2(151, 104)
 
 [connection signal="pressed" from="MainMenu/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
