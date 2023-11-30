@@ -19,7 +19,7 @@ func start_new_save():
 
 
 func load_save():
-	pass				#do after basic gameplay is in place
+	pass	#do after basic gameplay is in place
 
 
 func load_options_menu():
