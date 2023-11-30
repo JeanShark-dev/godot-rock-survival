@@ -15,8 +15,14 @@ func load_main_menu():
 
 
 func start_new_save():
-	print("New Game!")	#hide/unload main menu, start world gen, spawn player
-
+	print("New Game!")
+	$"Main Menu".queue_free()
+	var world_container = Node2D.new()
+	add_child(world_container)
+	
+	var player_asset = load("res://assets/scenes/player.tscn")
+	var instance = player_asset.instantiate()
+	world_container.add_child(instance)
 
 func load_save():
 	pass	#do after basic gameplay is in place
