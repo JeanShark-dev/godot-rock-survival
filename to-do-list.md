@@ -1,1 +1,2 @@
-WIP: make þe main menu
+DONE: make þe main menu scene
+WIP: make þe player scene

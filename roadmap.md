@@ -1,5 +1,14 @@
 basic functionality:
 	- main menu(in progress):
-		start game
+		load game
+		start game		DONE
 		options
-		quit
+		quit			DONE
+
+	- options menu(TBD):
+		
+
+	- gameplay(in progress):
+		world container node
+		player
+		basic gui

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkneauudnloti"]
+[gd_scene load_steps=3 format=3 uid="uid://dkneauudnloti"]
 
 [ext_resource type="Texture2D" uid="uid://c64ha1mxf0hfw" path="res://assets/sprites/icon.svg" id="1_5r1pd"]
+[ext_resource type="Script" path="res://assets/scripts/main_menu.gd" id="1_t2h7y"]
 
 [node name="Main Menu" type="MarginContainer"]
 anchors_preset = 15
@@ -12,6 +13,7 @@ theme_override_constants/margin_left = 120
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
+script = ExtResource("1_t2h7y")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -32,26 +34,24 @@ size_flags_vertical = 3
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="ContinueLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/ButtonsContainer"]
+[node name="ContinueButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonsContainer"]
 layout_mode = 2
+disabled = true
 text = "Continue"
-fit_content = true
 
-[node name="NewGameLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/ButtonsContainer"]
+[node name="NewGameButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonsContainer"]
 layout_mode = 2
-text = "New Game
+text = "New Game"
+
+[node name="OptionsButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+disabled = true
+text = "Options
 "
-fit_content = true
 
-[node name="OptionsLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/ButtonsContainer"]
-layout_mode = 2
-text = "Options"
-fit_content = true
-
-[node name="QuitLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/ButtonsContainer"]
+[node name="QuitButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonsContainer"]
 layout_mode = 2
 text = "Quit"
-fit_content = true
 
 [node name="VersionLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -67,3 +67,8 @@ mouse_filter = 2
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/CenterContainer"]
 layout_mode = 2
 texture = ExtResource("1_5r1pd")
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonsContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonsContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonsContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonsContainer/QuitButton" to="." method="_on_quit_button_pressed"]
