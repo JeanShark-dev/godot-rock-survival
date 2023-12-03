@@ -81,5 +81,5 @@ func load_options_menu():
 
 
 func QUIT():
-	print_orphan_nodes()	#check for memory leaks
+	Node.print_orphan_nodes()	#check for memory leaks
 	get_tree().quit()
