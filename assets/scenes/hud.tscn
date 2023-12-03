@@ -6,6 +6,7 @@ font_color = Color(0, 0, 0, 1)
 outline_size = 5
 
 [node name="HUD" type="MarginContainer"]
+process_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c64ha1mxf0hfw" path="res://assets/sprites/icon.svg" id="1_5r1pd"]
 [ext_resource type="Script" path="res://assets/scripts/main_menu.gd" id="1_t2h7y"]
 
-[node name="Main Menu" type="MarginContainer"]
+[node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

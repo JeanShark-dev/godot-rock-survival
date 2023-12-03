@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://6t5a0n0qa8jp"]
+
+[ext_resource type="Script" path="res://assets/scripts/pause_menu.gd" id="1_rtmfm"]
+
+[node name="PauseMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.247059, 0.247059, 0.247059, 0.247059)
+script = ExtResource("1_rtmfm")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenuButtons" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/PauseMenuButtons"]
+layout_mode = 2
+disabled = true
+text = "PRESS ESC AGAIN TO CONTINUE"
+
+[node name="OptionsButton" type="Button" parent="CenterContainer/PauseMenuButtons"]
+layout_mode = 2
+text = "OPTIONS"
+
+[node name="QuitToMenuButton" type="Button" parent="CenterContainer/PauseMenuButtons"]
+layout_mode = 2
+text = "MAIN MENU"
+
+[node name="QuitGameButton" type="Button" parent="CenterContainer/PauseMenuButtons"]
+layout_mode = 2
+text = "QUIT"
+
+[connection signal="pressed" from="CenterContainer/PauseMenuButtons/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PauseMenuButtons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PauseMenuButtons/QuitToMenuButton" to="." method="_on_quit_to_menu_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PauseMenuButtons/QuitGameButton" to="." method="_on_quit_game_button_pressed"]
