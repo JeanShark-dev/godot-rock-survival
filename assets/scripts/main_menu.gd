@@ -8,7 +8,7 @@ func _ready():
 	main_node = get_parent()
 
 
-func _on_new_game_button_pressed():
+func _on_new_game_button_pressed():	#below are simply þe buttons telling Main what to do
 	main_node.start_new_save()
 
 
