@@ -9,6 +9,6 @@ basic functionality:
 		
 
 	- gameplay(in progress):
-		world container node
+		world container node	DONE
 		player
 		basic gui

@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhbcd4tiw8x0r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6an6a"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
+
+[node name="HUD" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Tech" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TechContainer" type="CenterContainer" parent="VBoxContainer/Tech"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TechLabel" type="Label" parent="VBoxContainer/Tech/TechContainer"]
+layout_mode = 2
+text = "TECHNAMEHERE"
+label_settings = SubResource("LabelSettings_6an6a")
+
+[node name="TechBar" type="ProgressBar" parent="VBoxContainer/Tech"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Buffer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3

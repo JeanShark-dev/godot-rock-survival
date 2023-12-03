@@ -23,6 +23,11 @@ func start_new_save():
 	var player_asset = load("res://assets/scenes/player.tscn")
 	var instance = player_asset.instantiate()
 	world_container.add_child(instance)
+	var ui_container = CanvasLayer.new()
+	add_child(ui_container)
+	var player_hud_asset = load("res://assets/scenes/hud.tscn")
+	instance = player_hud_asset.instantiate()
+	ui_container.add_child(instance)
 
 func load_save():
 	pass	#do after basic gameplay is in place
