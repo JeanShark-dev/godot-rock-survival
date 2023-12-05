@@ -17,7 +17,6 @@ func _process(_delta):
 
 func object_mouse_handling(node):
 	player.get_mouse_target(node)
-	print(node)
 
 
 func load_main_menu():

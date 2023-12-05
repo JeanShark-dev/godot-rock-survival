@@ -21,7 +21,6 @@ func _ready():
 
 func harvest(delta, multiplier, drop_multiplier):
 	harvest_work -= delta * multiplier
-	print(harvest_work)
 	if harvest_work < 0:
 		drop_item(drop_multiplier)
 
