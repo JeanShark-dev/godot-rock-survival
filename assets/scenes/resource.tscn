@@ -16,3 +16,7 @@ color = Color(0.45098, 0.305882, 0.156863, 1)
 polygon = PackedVector2Array(0, 40, 21, 36, 33, 21, 40, 4, 37, -15, 18, -35, 1, -41, -26, -29, -37, -15, -40, -2, -35, 19, -22, 32, -9, 39)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

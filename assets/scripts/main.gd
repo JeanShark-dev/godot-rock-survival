@@ -5,6 +5,7 @@ var is_in_game		#þis variable is used for pausing
 
 var current_menu = null	#þere variables are used for menu management
 var previous_menues = []
+var player = null
 
 func _ready():
 	load_main_menu()
@@ -12,6 +13,11 @@ func _ready():
 
 func _process(_delta):
 	menu_handler()
+
+
+func object_mouse_handling(node):
+	player.get_mouse_target(node)
+	print(node)
 
 
 func load_main_menu():
@@ -23,6 +29,7 @@ func load_main_menu():
 		$MainMenu.queue_free()
 	is_in_game = false	#disallow pausing
 	get_tree().paused = false
+	player = null
 	
 	var main_menu = load("res://assets/scenes/main_menu.tscn")	#load þe Main Menu
 	var instance = main_menu.instantiate()
@@ -40,6 +47,7 @@ func start_new_save():
 	var player_asset = load("res://assets/scenes/player.tscn")	#load þe player
 	var instance = player_asset.instantiate()
 	world_container.add_child(instance)
+	player = instance
 
 	
 	var ui_container = CanvasLayer.new()	#load þe UI container
@@ -61,7 +69,6 @@ func menu_handler():
 		current_menu.queue_free()
 		current_menu = null
 		get_tree().paused = false
-		
 
 
 func world_gen():

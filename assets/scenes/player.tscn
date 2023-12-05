@@ -26,3 +26,6 @@ texture = ExtResource("2_bmhk1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ReachArea"]
 shape = SubResource("CircleShape2D_ejosu")
+
+[connection signal="area_entered" from="ReachArea" to="." method="_on_reach_area_area_entered"]
+[connection signal="area_exited" from="ReachArea" to="." method="_on_reach_area_area_exited"]
