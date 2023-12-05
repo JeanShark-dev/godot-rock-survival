@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://d37mdyvh8oaxs"]
+[gd_scene load_steps=5 format=3 uid="uid://d37mdyvh8oaxs"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_dkt1q"]
 [ext_resource type="Texture2D" uid="uid://c64ha1mxf0hfw" path="res://assets/sprites/icon.svg" id="2_bmhk1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qxje2"]
 radius = 29.2746
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ejosu"]
+radius = 100.0
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -18,4 +21,8 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_bmhk1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-enabled = false
+
+[node name="ReachArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReachArea"]
+shape = SubResource("CircleShape2D_ejosu")

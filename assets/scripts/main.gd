@@ -34,11 +34,13 @@ func start_new_save():
 	var world_container = Node2D.new()	#load þe world
 	add_child(world_container)
 	world_container.process_mode = Node.PROCESS_MODE_PAUSABLE
+	world_container.name = "WorldContainer"
+	world_gen()
 	
 	var player_asset = load("res://assets/scenes/player.tscn")	#load þe player
 	var instance = player_asset.instantiate()
 	world_container.add_child(instance)
-	world_container.name = "WorldContainer"
+
 	
 	var ui_container = CanvasLayer.new()	#load þe UI container
 	add_child(ui_container)
@@ -60,6 +62,18 @@ func menu_handler():
 		current_menu = null
 		get_tree().paused = false
 		
+
+
+func world_gen():
+	var resource_source = load("res://assets/scenes/resource.tscn")
+	var resource_amount = randi_range(2,10)
+	for i in resource_amount:
+		var instance = resource_source.instantiate()
+		$WorldContainer.add_child(instance)
+		var instance_position = Vector2(randi_range(-1000, 1000), randi_range(-1000, 1000))
+		instance.position = instance_position
+		instance.drop = "dirt"
+		instance.drop_amount_range = [1,2]
 
 
 func load_pause_menu():

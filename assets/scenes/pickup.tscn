@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://s3bp3q6bnj6d"]
+
+[ext_resource type="Script" path="res://assets/scripts/pickup.gd" id="1_vpksd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aa4xv"]
+radius = 20.0
+
+[node name="Pickup" type="Area2D"]
+script = ExtResource("1_vpksd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_aa4xv")
+
+[node name="DirtSpriteTemp" type="Polygon2D" parent="."]
+color = Color(0.4, 0.290196, 0.101961, 1)
+polygon = PackedVector2Array(1, 20, 14, 13, 20, 3, 16, -9, 6, -17, -7, -18, -15, -10, -19, 2, -14, 14)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

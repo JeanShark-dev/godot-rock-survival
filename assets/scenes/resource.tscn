@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkeswjn2gjg2u"]
+
+[ext_resource type="Script" path="res://assets/scripts/resource.gd" id="1_81o6l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wnm7y"]
+radius = 40.0
+
+[node name="Resource" type="Area2D"]
+script = ExtResource("1_81o6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wnm7y")
+
+[node name="DirtSpriteTemp" type="Polygon2D" parent="."]
+color = Color(0.45098, 0.305882, 0.156863, 1)
+polygon = PackedVector2Array(0, 40, 21, 36, 33, 21, 40, 4, 37, -15, 18, -35, 1, -41, -26, -29, -37, -15, -40, -2, -35, 19, -22, 32, -9, 39)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
