@@ -13,6 +13,9 @@ basic functionality:
 		player
 		basic gui
 		tech tree framework
+		mining					DONE
+		picking up items
+		inventory
 
 
 	- graphics(in progress):

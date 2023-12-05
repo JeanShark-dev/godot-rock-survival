@@ -72,7 +72,7 @@ func menu_handler():
 
 func world_gen():
 	var resource_source = load("res://assets/scenes/resource.tscn")
-	var resource_amount = randi_range(2,10)
+	var resource_amount = randi_range(5,20)
 	for i in resource_amount:
 		var instance = resource_source.instantiate()
 		$WorldContainer.add_child(instance)

@@ -32,9 +32,22 @@ func _physics_process(delta):
 	move_and_slide()
 
 
+func check_area(area):
+	if area.is_in_group("pickup") and area.automatic_pickup == true:
+		print("Ate an ", area.itemType, ".")
+		area.queue_free()
+
+
+
+
 func _on_reach_area_area_entered(area):
+	if area.is_in_group("resource") and areas_in_range.has(area):
+		area.get_node("Outline").visible = true
 	areas_in_range.append(area)
+	check_area(area)
 
 
 func _on_reach_area_area_exited(area):
 	areas_in_range.erase(area)
+	if area.is_in_group("resource") and area.has_node("Outline") and area.get_node("Outline").visible == true:
+		area.get_node("Outline").visible = false
