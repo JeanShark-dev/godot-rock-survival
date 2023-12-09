@@ -22,7 +22,7 @@ visible = false
 points = PackedVector2Array(13, 39, 22, 35, 34, 19, 40, 4, 37, -15, 18, -35, 0, -41, -27, -28, -37, -14, -41, 0, -34, 19, -22, 32, -14, 38, 1, 41)
 closed = true
 width = 5.0
-default_color = Color(0.917647, 0.74902, 0.188235, 0.529412)
+default_color = Color(0.321569, 0.827451, 0.188235, 0.529412)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

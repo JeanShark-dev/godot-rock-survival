@@ -9,6 +9,9 @@ var drop_scene = preload("res://assets/scenes/pickup.tscn")
 
 var has_mouse = false
 
+var idle_colour = Color(0.9, 7.5, 0.2, 0.5)
+var active_colour = Color(0.3, 0.8, 0.2, 0.5)
+
 var world_container
 var main
 
@@ -17,6 +20,7 @@ func _ready():
 	add_to_group("resource")
 	world_container = get_parent()
 	main = world_container.get_parent()
+	$Outline.default_color = idle_colour
 
 
 func harvest(delta, multiplier, drop_multiplier):
@@ -37,11 +41,12 @@ func drop_item(multiplier):
 
 func _on_mouse_entered():
 	has_mouse = true
-
+	$Outline.default_color = active_colour
 
 func _on_mouse_exited():
 	has_mouse = false
 	main.object_mouse_handling(null)
+	$Outline.default_color = idle_colour
 
 
 func _on_input_event(_viewport, _event, _shape_idx):

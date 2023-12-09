@@ -41,10 +41,10 @@ func check_area(area):
 
 
 func _on_reach_area_area_entered(area):
-	if area.is_in_group("resource") and areas_in_range.has(area):
-		area.get_node("Outline").visible = true
 	areas_in_range.append(area)
 	check_area(area)
+	if area.is_in_group("resource") and areas_in_range.has(area):
+		area.get_node("Outline").visible = true
 
 
 func _on_reach_area_area_exited(area):
