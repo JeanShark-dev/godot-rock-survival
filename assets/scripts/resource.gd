@@ -5,7 +5,7 @@ var drop_scene = preload("res://assets/scenes/pickup.tscn")
 
 @export var drop = ""
 @export var drop_amount_range = [1,1]
-@export var harvest_work = 10
+@export var harvest_work = 3
 
 var has_mouse = false
 

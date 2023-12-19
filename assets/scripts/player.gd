@@ -34,7 +34,8 @@ func _physics_process(delta):
 
 func check_area(area):
 	if area.is_in_group("pickup") and area.automatic_pickup == true:
-		print("Ate an ", area.itemType, ".")
+		print("testing inventory")
+		
 		area.queue_free()
 
 
