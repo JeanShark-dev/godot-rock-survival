@@ -5,6 +5,7 @@ var movement_speed_base = 100
 var mouse_target = null
 var areas_in_range = []
 
+@export var inventory: Inv
 
 func get_mouse_target(target):
 	mouse_target = target

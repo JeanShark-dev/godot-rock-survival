@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d37mdyvh8oaxs"]
+[gd_scene load_steps=7 format=3 uid="uid://d37mdyvh8oaxs"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_dkt1q"]
 [ext_resource type="Texture2D" uid="uid://c64ha1mxf0hfw" path="res://assets/sprites/icon.svg" id="2_bmhk1"]
+[ext_resource type="Resource" uid="uid://spilwfb8qeen" path="res://assets/inventory/player_inventory.tres" id="2_uvaxk"]
+[ext_resource type="PackedScene" uid="uid://83wyc3qhxg1" path="res://assets/scenes/inventory_ui.tscn" id="4_7j4ka"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qxje2"]
 radius = 29.2746
@@ -12,6 +14,7 @@ radius = 100.0
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_dkt1q")
+inventory = ExtResource("2_uvaxk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qxje2")
@@ -26,6 +29,12 @@ texture = ExtResource("2_bmhk1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ReachArea"]
 shape = SubResource("CircleShape2D_ejosu")
+
+[node name="InventoryUI" parent="." instance=ExtResource("4_7j4ka")]
+offset_left = -42.0
+offset_top = -136.0
+offset_right = 42.0
+offset_bottom = -52.0
 
 [connection signal="area_entered" from="ReachArea" to="." method="_on_reach_area_area_entered"]
 [connection signal="area_exited" from="ReachArea" to="." method="_on_reach_area_area_exited"]

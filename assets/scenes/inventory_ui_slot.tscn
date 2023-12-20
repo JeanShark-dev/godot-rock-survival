@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtx1umivxrj7k"]
+
+[ext_resource type="Script" path="res://assets/scripts/inventory_ui_slot.gd" id="1_oxtl1"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ukvsw"]
+
+[node name="InventoryUISlot" type="Panel"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_oxtl1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 0.141176, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = SubResource("PlaceholderTexture2D_ukvsw")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Display" type="TextureRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
