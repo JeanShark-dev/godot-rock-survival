@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4lnjk3kh8c2k"]
+[gd_scene load_steps=3 format=3 uid="uid://b4lnjk3kh8c2k"]
 
 [ext_resource type="Script" path="res://assets/scripts/Main.gd" id="1_ja8op"]
+[ext_resource type="PackedScene" uid="uid://b3q57cyo8hfn5" path="res://ore.tscn" id="2_37b85"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ja8op")
@@ -48,6 +49,9 @@ text = "QUIT"
 language = "en"
 
 [node name="WorldContainer" type="Node2D" parent="."]
+
+[node name="Ore" parent="." instance=ExtResource("2_37b85")]
+position = Vector2(-137, -128)
 
 [connection signal="pressed" from="MainMenu/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]

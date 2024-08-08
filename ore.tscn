@@ -8,6 +8,8 @@ radius = 38.833
 [node name="Ore" type="StaticBody2D"]
 script = ExtResource("1_s0nf3")
 ore_type = "clay"
+ore_quality = 2
+ore_quantity = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_odnlh")

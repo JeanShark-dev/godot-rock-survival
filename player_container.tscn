@@ -113,6 +113,7 @@ offset_bottom = 40.0
 
 [node name="PauseMenu" type="Control" parent="PlayerRigidBody/GUI"]
 visible = false
+z_index = 10
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
