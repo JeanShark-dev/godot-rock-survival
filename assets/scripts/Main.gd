@@ -5,7 +5,7 @@ var player = preload("res://player_container.tscn")
 
 
 func _ready():
-	pass # Replace with function body.
+	$MainMenu/ButtonContainer/StartButton.grab_focus()
 
 
 func _process(_delta):

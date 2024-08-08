@@ -10,6 +10,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -26,16 +28,22 @@ alignment = 1
 
 [node name="StartButton" type="Button" parent="MainMenu/ButtonContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../OptionsButton")
 text = "START"
 language = "en"
 
 [node name="OptionsButton" type="Button" parent="MainMenu/ButtonContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../StartButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
 text = "--UNDER CONSTRUCTION--"
 language = "en"
 
 [node name="QuitButton" type="Button" parent="MainMenu/ButtonContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../OptionsButton")
+focus_neighbor_bottom = NodePath("../StartButton")
 text = "QUIT"
 language = "en"
 
