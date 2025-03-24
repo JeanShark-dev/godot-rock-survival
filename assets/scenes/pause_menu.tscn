@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://6t5a0n0qa8jp"]
 
-[ext_resource type="Script" path="res://assets/scripts/pause_menu.gd" id="1_rtmfm"]
+[ext_resource type="Script" uid="uid://trfcyucu26du" path="res://assets/scripts/pause_menu.gd" id="1_rtmfm"]
 
 [node name="PauseMenu" type="ColorRect"]
 anchors_preset = 15

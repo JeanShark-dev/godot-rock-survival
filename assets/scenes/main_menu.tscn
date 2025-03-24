@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkneauudnloti"]
 
 [ext_resource type="Texture2D" uid="uid://c64ha1mxf0hfw" path="res://assets/sprites/icon.svg" id="1_5r1pd"]
-[ext_resource type="Script" path="res://assets/scripts/main_menu.gd" id="1_t2h7y"]
+[ext_resource type="Script" uid="uid://bytxr3qh3n218" path="res://assets/scripts/main_menu.gd" id="1_t2h7y"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
