@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cfb7jvlg72vho"]
 
-[ext_resource type="Script" path="res://assets/scripts/PlayerMovement.gd" id="1_m3egy"]
-[ext_resource type="Script" path="res://assets/scripts/WeaponsContainer.gd" id="2_kxgat"]
-[ext_resource type="Script" path="res://assets/scripts/GUI.gd" id="3_qlfn6"]
+[ext_resource type="Script" uid="uid://cja4soxl8q2mh" path="res://assets/scripts/PlayerMovement.gd" id="1_m3egy"]
+[ext_resource type="Script" uid="uid://d12r7hoogf42h" path="res://assets/scripts/WeaponsContainer.gd" id="2_kxgat"]
+[ext_resource type="Script" uid="uid://bwwam3frkc41y" path="res://assets/scripts/GUI.gd" id="3_qlfn6"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vxu8l"]
 lifetime_randomness = 1.0

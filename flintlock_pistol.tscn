@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bgeg7h7dhqu2e"]
 
-[ext_resource type="Script" path="res://assets/scripts/flintlock_pistol.gd" id="1_vc4sx"]
+[ext_resource type="Script" uid="uid://nn0ghj6p06mb" path="res://assets/scripts/flintlock_pistol.gd" id="1_vc4sx"]
 [ext_resource type="AudioStream" uid="uid://ds54d3mgyaic7" path="res://assets/sfx/chamber1.wav" id="3_47p2s"]
 [ext_resource type="AudioStream" uid="uid://ciia0tvsrgafi" path="res://assets/sfx/gunshot_2.wav" id="4_00kr6"]
 [ext_resource type="AudioStream" uid="uid://cwfks61eni8rg" path="res://assets/sfx/cock1.wav" id="4_uj5hv"]

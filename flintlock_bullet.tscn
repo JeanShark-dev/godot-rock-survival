@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://baa6nu5vjpvn4"]
 
-[ext_resource type="Script" path="res://assets/scripts/bullet.gd" id="1_2lgfh"]
+[ext_resource type="Script" uid="uid://cafkhvbfndh6g" path="res://assets/scripts/bullet.gd" id="1_2lgfh"]
 
 [node name="Flintlock Bullet" type="RayCast2D"]
 collide_with_areas = true

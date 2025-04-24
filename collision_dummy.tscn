@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqw1b6b6hj8fj"]
 
-[ext_resource type="Script" path="res://assets/scripts/collision_dummy.gd" id="1_b6103"]
+[ext_resource type="Script" uid="uid://co8bniws10q5y" path="res://assets/scripts/collision_dummy.gd" id="1_b6103"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_og6sa"]
 radius = 30.0666
