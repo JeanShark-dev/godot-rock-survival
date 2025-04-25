@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdrhdke3xn6ka"]
+
+[ext_resource type="Script" uid="uid://bbseu8ajdkgb5" path="res://main_menu.gd" id="1_06t4h"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Godot Rock game "
+
+[node name="Start_Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Options_Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="Quit_Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://clg4lgdru56rq"]
+
+[ext_resource type="Script" uid="uid://dqbsm6b00gwyj" path="res://player_movement.gd" id="1_byf70"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fynt8"]
+
+[node name="PlayerContainer" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_byf70")
+speed = 100
+
+[node name="Polygon2D" type="Polygon2D" parent="CharacterBody2D"]
+polygon = PackedVector2Array(-12.4412, 9.25373, 0, 12, 12, 10, 8, -12, 12.2146, -24.0257, 0, -35, -11.4852, -24.0257, -7.8943, -12.0561)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_fynt8")
