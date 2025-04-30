@@ -15,7 +15,6 @@ func load_world():
 	add_child(new)
 
 func purge():
-	print("Check three")
 	for child in get_children():
 		child.queue_free()
 	load_main_menu()
