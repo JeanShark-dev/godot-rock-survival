@@ -13,4 +13,9 @@ func load_main_menu():
 func load_world():
 	var new = world_container.instantiate()
 	add_child(new)
-	
+
+func purge():
+	print("Check three")
+	for child in get_children():
+		child.queue_free()
+	load_main_menu()

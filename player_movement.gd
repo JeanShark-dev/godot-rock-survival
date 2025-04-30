@@ -5,6 +5,8 @@ extends CharacterBody2D
 func get_input():
 	var input_direction = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down")
 	velocity = input_direction.normalized() * speed
+	if velocity != Vector2(0,0):
+		$RotationAnchor.moveDirection = velocity.normalized()
 
 func _physics_process(delta: float) -> void:
 	get_input()
