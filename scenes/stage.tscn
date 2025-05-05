@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://blhflwhmkshwk"]
+
+[ext_resource type="Texture2D" uid="uid://bs7cx8u4h1l8x" path="res://texture/loopable-tileable-stars-pattern-realistic-stars-slowly-twinkle-in-the-night-sky-seamless-tile-can-be-combined-into-8k-or-larger-frame-by-placing-clip-copies-side-by-side_vkpg6uy2__F0000.png" id="1_8rem4"]
+
+[node name="Stage" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(2310, 1299)
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -100
+texture = ExtResource("1_8rem4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2310, 1299)
