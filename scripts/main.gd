@@ -1,7 +1,7 @@
 extends Node
 
-@onready var Main_Menu = preload("res://main_menu.tscn")
-@onready var world_container = preload("res://world_container.tscn")
+@onready var Main_Menu = preload("res://scenes/main_menu.tscn")
+@onready var world_container = preload("res://scenes/world_container.tscn")
 
 func _ready() -> void:
 	load_main_menu()

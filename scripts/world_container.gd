@@ -1,6 +1,6 @@
 extends Node2D
 
-var player_container_resource = load("res://player_container.tscn")
+var player_container_resource = load("res:///scenes/player_container.tscn")
 
 func spawn_player():
 	var player = player_container_resource.instantiate()
