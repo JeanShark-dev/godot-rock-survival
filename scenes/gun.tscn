@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4jduekxu16pn"]
+
+[ext_resource type="Script" uid="uid://cy51i7uqt7gcx" path="res://scripts/weapon_hitscan.gd" id="1_x77fm"]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_x77fm")
+base_damage_type = "light"
+
+[node name="Firepoint" type="Node2D" parent="."]
+position = Vector2(78, -18)
+
+[node name="SpriteTemp" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(27, 5, 33, -12, 31, -15, 35, -21, 80, -21, 79, -14, 53, -13, 48, -8, 42, -7, 35, 6)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(58, -18)
+target_position = Vector2(100, 0)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt151m8h8tpth"]
+
+[ext_resource type="Script" uid="uid://btaktxavrou3c" path="res://scripts/muzzle_flash.gd" id="1_xmy2q"]
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+emitting = false
+amount = 25
+one_shot = true
+explosiveness = 0.95
+randomness = 0.51
+lifetime_randomness = 1.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 100.0
+angular_velocity_min = -5.0
+angular_velocity_max = 5.0
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+linear_accel_min = -5.0
+linear_accel_max = 5.0
+damping_min = 5.0
+damping_max = 20.0
+script = ExtResource("1_xmy2q")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

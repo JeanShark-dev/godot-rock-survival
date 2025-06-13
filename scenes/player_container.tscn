@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://clg4lgdru56rq"]
+[gd_scene load_steps=9 format=3 uid="uid://clg4lgdru56rq"]
 
 [ext_resource type="Script" uid="uid://c5oqke7asrk13" path="res://scripts/player_manager.gd" id="1_16t8g"]
 [ext_resource type="Script" uid="uid://dqbsm6b00gwyj" path="res://scripts/player_movement.gd" id="1_byf70"]
 [ext_resource type="Script" uid="uid://dp5tc0asy8i80" path="res://scripts/player_rotation.gd" id="2_fynt8"]
 [ext_resource type="Script" uid="uid://bxohjssu37sox" path="res://scripts/inventory.gd" id="3_4hg65"]
 [ext_resource type="PackedScene" uid="uid://bk7nsv63qd1yl" path="res://scenes/pause_menu.tscn" id="3_5ef71"]
+[ext_resource type="PackedScene" uid="uid://c4jduekxu16pn" path="res://scenes/gun.tscn" id="5_a36gw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fynt8"]
 
@@ -38,13 +39,18 @@ shape = SubResource("CircleShape2D_a36gw")
 [node name="RotationAnchor" type="Node2D" parent="Character"]
 script = ExtResource("2_fynt8")
 
-[node name="AimDirectionIndicator" type="Polygon2D" parent="Character/RotationAnchor"]
-color = Color(1, 0, 1, 1)
-polygon = PackedVector2Array(0, 2, -3, 0, 0, -2, 26, 0)
-
 [node name="MoveDirectionIndicator" type="Polygon2D" parent="Character/RotationAnchor"]
 color = Color(0, 1, 1, 1)
 polygon = PackedVector2Array(0, 5, -4, 0, 0, -5, 14, 0)
+
+[node name="MouseRotation" type="Node2D" parent="Character/RotationAnchor"]
+
+[node name="Weapon" parent="Character/RotationAnchor/MouseRotation" instance=ExtResource("5_a36gw")]
+
+[node name="AimDirectionIndicator" type="Polygon2D" parent="Character/RotationAnchor/MouseRotation"]
+visible = false
+color = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(0, 2, -3, 0, 0, -2, 26, 0)
 
 [node name="PauseMenu" parent="Character" instance=ExtResource("3_5ef71")]
 visible = false

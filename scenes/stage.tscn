@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://blhflwhmkshwk"]
+[gd_scene load_steps=3 format=3 uid="uid://blhflwhmkshwk"]
 
 [ext_resource type="Texture2D" uid="uid://bs7cx8u4h1l8x" path="res://texture/loopable-tileable-stars-pattern-realistic-stars-slowly-twinkle-in-the-night-sky-seamless-tile-can-be-combined-into-8k-or-larger-frame-by-placing-clip-copies-side-by-side_vkpg6uy2__F0000.png" id="1_8rem4"]
+[ext_resource type="PackedScene" uid="uid://b4ll0l7papb7d" path="res://scenes/target.tscn" id="2_gi7kc"]
 
 [node name="Stage" type="Node2D"]
 
@@ -16,3 +17,26 @@ texture = ExtResource("1_8rem4")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 2310, 1299)
+
+[node name="Target" parent="." instance=ExtResource("2_gi7kc")]
+
+[node name="Target2" parent="." instance=ExtResource("2_gi7kc")]
+position = Vector2(256, 122)
+
+[node name="Target3" parent="." instance=ExtResource("2_gi7kc")]
+position = Vector2(98, 82)
+
+[node name="Target4" parent="." instance=ExtResource("2_gi7kc")]
+position = Vector2(141, 166)
+
+[node name="Target5" parent="." instance=ExtResource("2_gi7kc")]
+position = Vector2(35, 282)
+
+[node name="Target6" parent="." instance=ExtResource("2_gi7kc")]
+position = Vector2(458, 302)
+
+[node name="Target7" parent="." instance=ExtResource("2_gi7kc")]
+position = Vector2(407, 75)
+
+[node name="Target8" parent="." instance=ExtResource("2_gi7kc")]
+position = Vector2(298, 304)

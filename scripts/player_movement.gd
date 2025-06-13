@@ -7,6 +7,9 @@ func get_input():
 	velocity = input_direction.normalized() * speed
 	if velocity != Vector2(0,0):
 		$RotationAnchor.moveDirection = velocity.normalized()
+	if Input.is_action_just_pressed("mouse_0") and has_node("RotationAnchor/MouseRotation/Weapon"):
+		$RotationAnchor/MouseRotation/Weapon.attack("player")
+
 
 func _physics_process(delta: float) -> void:
 	get_input()
