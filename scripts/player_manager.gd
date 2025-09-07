@@ -5,6 +5,9 @@ extends Node2D
 
 @onready var current_health = max_health
 
+func _ready() -> void:
+	$Character.add_to_group("Player")
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pause_unpause()
@@ -23,7 +26,7 @@ func gasp_for_breath():
 
 func pause_unpause():
 	get_tree().set_pause(!get_tree().is_paused())
-	$CharacterBody2D/PauseMenu.visible = !$CharacterBody2D/PauseMenu.visible
+	$Character/PauseMenu.visible = !$Character/PauseMenu.visible
 
 func take_damage(damage_amount, damage_type, damage_effect = "none"):
 	#print("taking ", damage_amount, " damage of type ", damage_type, ", adding the debuff: ", damage_effect)

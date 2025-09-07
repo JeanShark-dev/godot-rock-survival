@@ -7,11 +7,12 @@ script = ExtResource("1_x77fm")
 base_damage_type = "light"
 
 [node name="Firepoint" type="Node2D" parent="."]
-position = Vector2(78, -18)
+position = Vector2(78, 0)
 
 [node name="SpriteTemp" type="Polygon2D" parent="."]
+position = Vector2(-1, 18)
 polygon = PackedVector2Array(27, 5, 33, -12, 31, -15, 35, -21, 80, -21, 79, -14, 53, -13, 48, -8, 42, -7, 35, 6)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(58, -18)
+position = Vector2(58, 0)
 target_position = Vector2(100, 0)

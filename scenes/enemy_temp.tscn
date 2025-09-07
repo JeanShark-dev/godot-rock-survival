@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dceoynl0n5o10"]
+
+[ext_resource type="Script" uid="uid://d0e61x8qal4rd" path="res://scripts/npc_move.gd" id="1_hjb4c"]
+[ext_resource type="Script" uid="uid://cjheyoguk42mb" path="res://scripts/enemy_manager.gd" id="1_ptu84"]
+[ext_resource type="Script" uid="uid://dw7wf6b6ivbah" path="res://scripts/npc_vision.gd" id="3_8tduc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gaett"]
+radius = 27.1662
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ptu84"]
+radius = 146.0
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_ptu84")
+vision_range = 100.0
+
+[node name="EnemyBody" type="CharacterBody2D" parent="."]
+script = ExtResource("1_hjb4c")
+
+[node name="EnemySprite" type="Sprite2D" parent="EnemyBody"]
+
+[node name="Polygon2D" type="Polygon2D" parent="EnemyBody"]
+position = Vector2(1, 15)
+polygon = PackedVector2Array(-19, 20, 0, 25, 23, 20, 7, -11, 19, -21, 18, -35, 36, -43, 28, -65, 7, -56, 5, -44, -8, -43, -13, -55, -28, -67, -42, -52, -26, -39, -21, -30, -47, -15, -10, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody"]
+shape = SubResource("CircleShape2D_gaett")
+
+[node name="Vision" type="Area2D" parent="EnemyBody"]
+monitorable = false
+script = ExtResource("3_8tduc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/Vision"]
+shape = SubResource("CircleShape2D_ptu84")
+
+[connection signal="body_entered" from="EnemyBody/Vision" to="EnemyBody/Vision" method="_on_body_entered"]
+[connection signal="body_exited" from="EnemyBody/Vision" to="EnemyBody/Vision" method="_on_body_exited"]
